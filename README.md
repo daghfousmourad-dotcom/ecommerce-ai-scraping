@@ -93,63 +93,13 @@ ecommerce_ai_scraping/
 
 ## 🌐 Sources Intégrées (35+ Sources Web & Plateformes Opérationnelles)
 
-La plateforme centralise les données tarifaires à travers 5 univers métiers interconnectés :
+La plateforme centralise et unifie en continu les données tarifaires à travers 5 grands univers métiers :
 
-### 1. Domaine Réparations en Atelier & Réseaux Spécialisés
-| Source | Type d'Acteur | Protocole / Technologie | Particularité & Volume |
-| :--- | :--- | :--- | :--- |
-| **WeFix** | Leader National (Fnac/Darty) | Découverte HTTP + JSON | Réseau n°1 en France, 16 000+ tarifs multi-catégories |
-| **Save.co** | Réseau National Réparation | API REST direct APIDAI | Référentiel national pannes/ateliers, zéro anti-bot |
-| **Docteur IT** | Réseau National Réparation | Playwright / HTTP | 50+ centres en France, grilles complètes par modèle |
-| **iRiparo France** | Réseau Spécialisé | Requests + BeautifulSoup | Réseau européen, 12 000+ tarifs de réparation |
-| **Pixel Store** | Atelier Régional (Salaise) | Playwright Chromium | 16 000+ tarifs pièces et main-d'œuvre |
-| **Phon'Ethik** | Atelier Régional (Lyon) | Requests + BeautifulSoup | 6 000+ tarifs ateliers |
-| **GO SMART Boulogne** | Atelier Régional (Boulogne) | Interception API interne Playwright | 926 modèles de smartphones, 3 749 tarifs pannes |
-| **Mon Réparateur Pro** | Atelier Régional (Clermont) | Playwright Chromium | 1 490 tarifs multi-marques atelier |
-| **Clinique Phone** | Atelier Régional (Rosny) | Playwright Chromium | 12 univers constructeurs, 1 000+ tarifs |
-| **ProsMobile** | Atelier Régional (Strasbourg) | Requests + BeautifulSoup | Grille interactive modèle × panne, 920+ tarifs |
-| **Smart Repair 63** | Atelier Régional (Auvergne) | Playwright Chromium | 2 000+ tarifs ateliers |
-| **Corner Mobile** | Atelier Régional (Lille) | Playwright Chromium | Spécialiste Hauts-de-France, 570 tarifs |
-| **Phone & CBD** | Atelier Régional (Marseille) | Requests + BeautifulSoup | Délais, garanties et forfaits ateliers |
-| **Phone Express** | Atelier Régional (Marseille) | Playwright Chromium | Grille tarifaire rapide |
-| **Pixou Phone** | Atelier Régional (Marseille) | Playwright Chromium | 5 300+ tarifs pannes et vente |
-
-### 2. Domaine Grossiste Pièces Détachées (B2B)
-| Source | Type d'Acteur | Protocole / Technologie | Particularité & Volume |
-| :--- | :--- | :--- | :--- |
-| **Utopya** | Leader Grossiste B2B | Playwright Chromium (Auth) | Pièces détachées smartphones (écrans, batteries, connecteurs), prix d'achat HT pour calcul de marge |
-| **Xiaomi France Service** | Constructeur Pièces | JSON API interne | Tarifs officiels des composants de remplacement |
-
-### 3. Domaine Constructeurs Officiels (Référence Neuf & Réparation)
-| Source | Type d'Acteur | Protocole / Technologie | Particularité & Volume |
-| :--- | :--- | :--- | :--- |
-| **Apple Store France** | Constructeur Officiel | API Store interne JSON | Tarifs de référence vente neuve (iPhone, iPad, Mac) |
-| **Apple Réparation** | Constructeur Réparation | API Calculateur Apple | Barème officiel Apple hors garantie |
-| **Samsung Shop France** | Constructeur Officiel | JSON catalogue web | Tarifs officiels constructeur Android (Galaxy S, Z, A) |
-| **Samsung Smart Repair** | Constructeur Réparation | API Smart Repair Samsung | Forfaits de réparation officielle constructeur |
-| **Google Pixel Repair** | Constructeur Officiel | Ingestion certifiée | Barèmes officiels pièces & écrans Google Pixel |
-| **Honor / Oppo / Xiaomi** | Constructeurs Officiels | API / Web Scraping | Tarifs constructeurs officiels de pièces et vente |
-
-### 4. Domaine Marketplaces & Distribution Grand Public
-| Source | Type d'Acteur | Protocole / Technologie | Particularité & Volume |
-| :--- | :--- | :--- | :--- |
-| **Amazon France** | Marketplace Leader | Requests unifié + IQR | Prix marché grand public avec filtre statistique IQR |
-| **eBay France** | Marketplace C2C / B2C | Browse API OAuth 2.0 | Volume de transactions réelles, cotes occasion & reconditionné |
-| **Boulanger** | Enseigne Multimédia | Playwright Chromium | Offres neuves magasin & 2nd Life (1 900+ offres) |
-| **Darty** | Enseigne Multimédia | Mode Hybride Furtif | Tarifs neufs magasin et offres marketplace Darty |
-| **Cdiscount** | E-commerce Français | Playwright / Requests | Vente directe et marketplace française (800+ offres) |
-| **LDLC** | Spécialiste High-Tech | Playwright Chromium | Smartphones neufs et reconditionnés (1 400+ offres) |
-| **Rakuten France** | Marketplace Généraliste | Requests + BeautifulSoup | Offres multi-vendeurs avec cashback |
-
-### 5. Domaine Reconditionné Spécialisé & Occasion
-| Source | Type d'Acteur | Protocole / Technologie | Particularité & Volume |
-| :--- | :--- | :--- | :--- |
-| **Back Market** | Leader Reconditionné | Requests TLS / Playwright | Déclinaisons multi-grades (Correct, Très bon état, Parfait état) |
-| **Easy Cash** | Réseau Achat-Vente Occasion | Playwright Chromium | Premier réseau français d'occasion (1 800+ offres) |
-| **SMAAART** | Reconditionneur Certifié | Playwright Chromium | Reconditionnement 100% français certifié (usine France) |
-| **Electro Dépôt** | Discount Électroménager | Playwright Chromium | Prix discount magasin (130+ offres) |
-| **Leboncoin** | Leader Occasion C2C | Requests / Playwright | Cotes marché de l'occasion entre particuliers |
-| **123Comparer** | Comparateur Multi-marchands | Requests + Parsing HTML | Métamoteur comparatif pour benchmarks (18 000+ offres) |
+* **1. Réparations en Atelier & Réseaux Spécialisés :** WeFix *(leader national Fnac/Darty)*, Save.co, Docteur IT, iRiparo France, Pixel Store, Phon'Ethik, GO SMART, Mon Réparateur Pro, Clinique Phone, ProsMobile, Smart Repair 63, Corner Mobile, Phone & CBD, Phone Express, Pixou Phone.
+* **2. Grossistes Pièces Détachées (B2B) :** Utopya *(leader grossiste écrans, batteries, connecteurs)*, Xiaomi France Service.
+* **3. Constructeurs Officiels (Référence Neuf & Réparation) :** Apple Store & Calculateur barème officiel hors garantie, Samsung Shop & Smart Repair, Google Pixel Repair, Honor, Oppo, Xiaomi.
+* **4. Marketplaces & Distribution Grand Public :** Amazon France *(avec filtrage statistique IQR)*, eBay France *(Browse API OAuth 2.0)*, Boulanger *(neuf & 2nd Life)*, Darty, Cdiscount, LDLC, Rakuten.
+* **5. Reconditionné Spécialisé & Occasion :** Back Market *(multi-grades certifiés)*, Easy Cash *(réseau achat-vente)*, SMAAART *(reconditionnement 100% français)*, Electro Dépôt, Leboncoin *(cotes C2C)*, 123Comparer *(métamoteur comparatif)*.
 
 ---
 
@@ -184,7 +134,7 @@ Le moteur intègre un pipeline asynchrone avec LLM local garantissant une **conf
 ### 2. Installation pas-à-pas
 ```bash
 # 1. Cloner le dépôt
-git clone https://github.com/T-SCOP-Company/ecommerce_ai_scraping.git
+git clone https://github.com/daghfousmourad-dotcom/ecommerce-ai-scraping.git
 cd ecommerce_ai_scraping
 
 # 2. Créer et activer l'environnement virtuel
