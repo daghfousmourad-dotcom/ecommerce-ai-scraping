@@ -1,0 +1,240 @@
+{
+  "micromax": {
+    "canonical_brand": "Micromax",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "blu products": {
+    "canonical_brand": "Blu Products",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "inoi": {
+    "canonical_brand": "Inoi",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "symphony mobile": {
+    "canonical_brand": "Symphony Mobile",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "xyz mobile": {
+    "canonical_brand": "Xyz Mobile",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "marque inconnue": {
+    "canonical_brand": "Marque Inconnue",
+    "status": "UNVERIFIED",
+    "is_smartphone_brand": true,
+    "verification_source": "unverified_fallback",
+    "confidence": 0.7
+  },
+  "generique": {
+    "canonical_brand": "Generique",
+    "status": "UNVERIFIED",
+    "is_smartphone_brand": true,
+    "verification_source": "unverified_fallback",
+    "confidence": 0.7
+  },
+  "inconnu": {
+    "canonical_brand": "Inconnu",
+    "status": "UNVERIFIED",
+    "is_smartphone_brand": true,
+    "verification_source": "insufficient_external_proof",
+    "confidence": 0.5
+  },
+  "fossibot": {
+    "canonical_brand": "Fossibot",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "oscal": {
+    "canonical_brand": "Oscal",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "outillage": {
+    "canonical_brand": "Outillage",
+    "status": "UNVERIFIED",
+    "is_smartphone_brand": true,
+    "verification_source": "unverified_fallback",
+    "confidence": 0.7
+  },
+  "sigma": {
+    "canonical_brand": "Sigma",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "kodak": {
+    "canonical_brand": "Kodak",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "retro-gaming": {
+    "canonical_brand": "Retro-Gaming",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "valve": {
+    "canonical_brand": "Valve",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "microsoft": {
+    "canonical_brand": "Microsoft",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "fixe": {
+    "canonical_brand": "Fixe",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "portable": {
+    "canonical_brand": "Portable",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "acer": {
+    "canonical_brand": "Acer",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "msi": {
+    "canonical_brand": "Msi",
+    "status": "UNVERIFIED",
+    "is_smartphone_brand": true,
+    "verification_source": "insufficient_external_proof",
+    "confidence": 0.5
+  },
+  "toshiba": {
+    "canonical_brand": "Toshiba",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "blackberry": {
+    "canonical_brand": "Blackberry",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "bq": {
+    "canonical_brand": "Bq",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "dell": {
+    "canonical_brand": "Dell",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "elephone": {
+    "canonical_brand": "Elephone",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "hp": {
+    "canonical_brand": "Hp",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "majestic": {
+    "canonical_brand": "Majestic",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "mediacom": {
+    "canonical_brand": "Mediacom",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "ngm": {
+    "canonical_brand": "Ngm",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "swissvoice": {
+    "canonical_brand": "Swissvoice",
+    "status": "UNVERIFIED",
+    "is_smartphone_brand": true,
+    "verification_source": "unverified_fallback",
+    "confidence": 0.7
+  },
+  "vodafone": {
+    "canonical_brand": "Vodafone",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "générique": {
+    "canonical_brand": "Générique",
+    "status": "UNVERIFIED",
+    "is_smartphone_brand": true,
+    "verification_source": "unverified_fallback",
+    "confidence": 0.7
+  },
+  "zebra": {
+    "canonical_brand": "Zebra",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "autres": {
+    "canonical_brand": "Autres",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  }
+}

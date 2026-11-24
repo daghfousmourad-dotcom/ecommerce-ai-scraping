@@ -1,0 +1,140 @@
+{
+  "audit_timestamp": "2026-10-13T17:35:00+00:00",
+  "total_records_audited": 87482,
+  "anomalies_count": 0,
+  "fidelity_rate_percent": 100.0,
+  "site_summaries": {
+    "crash_mobile": {
+      "count": 3678,
+      "brands_count": 16,
+      "models_count": 720,
+      "min_price": 19.0,
+      "q1_price": 69.0,
+      "median_price": 129.0,
+      "mean_price": 153.34,
+      "q3_price": 166.5,
+      "max_price": 449.0,
+      "iqr": 97.5
+    },
+    "docteur_it": {
+      "count": 3844,
+      "brands_count": 22,
+      "models_count": 449,
+      "min_price": 9.0,
+      "q1_price": 59.0,
+      "median_price": 69.0,
+      "mean_price": 80.49,
+      "q3_price": 89.0,
+      "max_price": 709.0,
+      "iqr": 30.0
+    },
+    "feexo": {
+      "count": 19794,
+      "brands_count": 19,
+      "models_count": 1883,
+      "min_price": 19.9,
+      "q1_price": 29.9,
+      "median_price": 34.9,
+      "mean_price": 47.08,
+      "q3_price": 69.0,
+      "max_price": 639.0,
+      "iqr": 39.1
+    },
+    "go_smart": {
+      "count": 3749,
+      "brands_count": 17,
+      "models_count": 464,
+      "min_price": 15.0,
+      "q1_price": 49.0,
+      "median_price": 59.0,
+      "mean_price": 74.21,
+      "q3_price": 79.0,
+      "max_price": 459.0,
+      "iqr": 30.0
+    },
+    "iriparo": {
+      "count": 12112,
+      "brands_count": 40,
+      "models_count": 1980,
+      "min_price": 9.0,
+      "q1_price": 49.0,
+      "median_price": 59.0,
+      "mean_price": 70.3,
+      "q3_price": 79.0,
+      "max_price": 719.0,
+      "iqr": 30.0
+    },
+    "phonethik": {
+      "count": 6644,
+      "brands_count": 18,
+      "models_count": 683,
+      "min_price": 19.9,
+      "q1_price": 49.9,
+      "median_price": 59.9,
+      "mean_price": 72.34,
+      "q3_price": 79.9,
+      "max_price": 829.9,
+      "iqr": 30.0
+    },
+    "pixel_store": {
+      "count": 16008,
+      "brands_count": 18,
+      "models_count": 708,
+      "min_price": 9.9,
+      "q1_price": 39.9,
+      "median_price": 49.9,
+      "mean_price": 56.68,
+      "q3_price": 69.9,
+      "max_price": 689.9,
+      "iqr": 30.0
+    },
+    "save": {
+      "count": 3536,
+      "brands_count": 14,
+      "models_count": 449,
+      "min_price": 9.9,
+      "q1_price": 49.9,
+      "median_price": 59.9,
+      "mean_price": 72.73,
+      "q3_price": 79.9,
+      "max_price": 789.9,
+      "iqr": 30.0
+    },
+    "smart_repair_63": {
+      "count": 1988,
+      "brands_count": 13,
+      "models_count": 478,
+      "min_price": 29.0,
+      "q1_price": 39.0,
+      "median_price": 49.0,
+      "mean_price": 65.16,
+      "q3_price": 69.0,
+      "max_price": 499.0,
+      "iqr": 30.0
+    },
+    "wefix": {
+      "count": 15919,
+      "brands_count": 20,
+      "models_count": 1046,
+      "min_price": 5.9,
+      "q1_price": 19.9,
+      "median_price": 29.9,
+      "mean_price": 42.41,
+      "q3_price": 49.9,
+      "max_price": 999.9,
+      "iqr": 30.0
+    },
+    "apple": {
+      "count": 210,
+      "brands_count": 1,
+      "models_count": 42,
+      "min_price": 79.0,
+      "q1_price": 169.0,
+      "median_price": 338.99,
+      "mean_price": 365.26,
+      "q3_price": 499.0,
+      "max_price": 1059.0,
+      "iqr": 330.0
+    }
+  }
+}

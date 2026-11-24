@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 100" width="240" height="100">
+  <rect width="240" height="100" rx="16" fill="#fef2f2"/>
+  <circle cx="60" cy="50" r="22" fill="none" stroke="#e10600" stroke-width="6"/>
+  <line x1="60" y1="20" x2="60" y2="80" stroke="#e10600" stroke-width="6"/>
+  <line x1="30" y1="50" x2="90" y2="50" stroke="#e10600" stroke-width="6"/>
+  <text x="100" y="58" fill="#e10600" font-size="20" font-weight="900" font-family="system-ui, sans-serif" letter-spacing="1">CROSSCALL</text>
+</svg>

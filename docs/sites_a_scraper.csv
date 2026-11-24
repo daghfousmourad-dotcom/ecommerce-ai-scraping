@@ -1,0 +1,128 @@
+rang,priorite,site,statut,dossier_source,url,pourquoi
+1,P0,Docteur IT,Terminé (5465 prix),docteur_it,https://www.docteur-it.com/,"Réseau national, réparation smartphone, nombreuses pages/modèles et tarifs"
+2,P0,iRiparo France,Terminé (13575 prix),iriparo,https://iriparo.com/fr/,"Plus de 35 marques, catalogue par marque/modèle/réparation"
+3,P0,WeFix Fnac,Terminé (16665 prix),wefix,https://wefix.net/,Leader national réparation express en corner Fnac/Darty
+4,P0,Pixel Store France,Terminé (16008 prix),pixel_store,https://pixelstorefrance.fr/tarifs,930+ modèles tarifés (simulateur devis instantané)
+5,P0,Pixou Phone,Terminé (11493 prix),pixou_phone,https://pixouphone.fr/,Réseau d'ateliers de réparation smartphone avec devis en ligne
+6,P0,Phon'Ethik,Terminé (6715 prix),phonethik,https://www.phon-ethik.fr/pages/tarifs-reparation.html,Grille tarifaire réparation atelier éco-responsable
+7,P0,Save.co,Terminé (3536 prix),save,https://save.co/,Réseau national de réparation smartphone certifié
+8,P0,Phone & CBD,Terminé (3045 prix),phone_cbd,https://phoneandcbd.fr/,Atelier réparation smartphones multi-marques Marseille
+9,P0,Smart Repair 63,Terminé (2048 prix),smart_repair_63,https://smartrepair63.fr/tarifs.html,Large couverture de marques et grille tarifaire
+10,P0,Samsung Smart Repair,Terminé (766 prix),samsung,https://www.samsung.com/fr/support/smart-repair-service/,Tarifs officiels constructeur réparation par modèle et par type de panne
+11,P0,Corner Mobile,Terminé (570 prix),corner_mobile,https://cornermobile.fr/,Catalogue récent iPhone/Samsung/Xiaomi/Pixel/Oppo/Honor
+12,P0,Xiaomi France – Spare Parts Price,Terminé (532 prix),xiaomi,https://www.mi.com/fr/support/spare-parts-price/,Prix officiels des pièces détachées Xiaomi par modèle
+13,P0,HONOR France,Terminé (490 prix),honor,https://www.honor.com/fr/support/sparepart-price/,Tarifs officiels constructeur de pièces détachées
+14,P0,Phone Express,Terminé (340 prix),phone_express,https://phoneexpress.fr/tarifs,Grille structurée : modèle × écran × batterie × connecteur × caméra
+15,P0,Google Pixel Repair,Terminé (326 prix),google,https://store.google.com/fr/repair-cost-estimator?hl=fr,Estimation officielle de réparation constructeur pour les Pixel
+16,P0,OPPO France,Terminé (306 prix),oppo,https://support.oppo.com/fr/spare-parts-price/,Prix indicatifs officiels des réparations/pièces
+17,P0,Apple – Réparation iPhone,Terminé (210 prix),apple,https://support.apple.com/fr-fr/iphone/repair,Référence constructeur pour les réparations iPhone
+18,P0,Ephone Access,Terminé (52 prix),ephoneaccess,https://www.ephoneaccess.com/,Atelier Marseille vente accessoires et réparations smartphone
+19,P0,Targets Ateliers Locaux,Terminé (1020 prix),targets,https://comparer-reparer.com/,Agrégation d'ateliers et réparateurs locaux indépendants
+20,P0,Utopya Grossiste B2B,Terminé (12547 pièces),utopya,https://www.utopya.fr/,Grossiste de référence B2B en pièces détachées smartphones
+21,P1,123comparer,Terminé (22309 offres),123comparer,https://www.123comparer.com/,Comparateur de prix e-commerce smartphones neufs et reconditionnés
+22,P1,Rakuten France,Terminé (2975 offres),rakuten,https://fr.shopping.rakuten.com/,Marketplace e-commerce smartphones neufs et reconditionnés
+23,P1,eBay France,Terminé (2471 offres),ebay,https://www.ebay.fr/,Marketplace leader occasions et reconditionnés tech
+24,P1,Boulanger,Terminé (1903 offres),boulanger,https://www.boulanger.com/,"Distributeur national tech, vente neuf et seconde vie"
+25,P1,Easy Cash,Terminé (1862 offres),easy_cash,https://www.easycash.fr/,Réseau leader achat/vente produits occasion et reconditionnés
+26,P1,LDLC,Terminé (1463 offres),ldlc,https://www.ldlc.com/,Distributeur informatique et smartphones neuf et reconditionné
+27,P1,Darty Marketplace,Terminé (885 offres),darty,https://www.darty.com/,Marketplace et enseigne tech vente smartphones
+28,P1,Cdiscount,Terminé (806 offres),cdiscount,https://www.cdiscount.com/,"Grand e-commerçant français, smartphones neufs et reconditionnés"
+29,P1,Amazon France,Terminé (719 offres),amazon,https://www.amazon.fr/,Catalogue offres smartphones reconditionnés et occasions certifiées
+30,P1,Back Market,Terminé (656 offres),backmarket,https://www.backmarket.fr/,Place de marché de référence pour les smartphones reconditionnés
+31,P1,Leboncoin France,Terminé (291 offres),leboncoin,https://www.leboncoin.fr/,Leader des petites annonces entre particuliers et pros
+32,P1,Samsung Officiel (Vente),Terminé (234 offres),samsung,https://www.samsung.com/fr/,Boutique officielle constructeur Samsung smartphones neufs
+33,P1,Apple Officiel (Vente),Terminé (126 offres),apple,https://www.apple.com/fr/,Boutique constructeur Apple iPhone neufs et certifiés reconditionnés
+34,P1,Electro Dépôt,Terminé (139 offres),electro_depot,https://www.electrodepot.fr/,"Magasins discount tech, smartphones neufs et reconditionnés"
+35,P1,SMAAART,Terminé (98 offres),smaaart,https://smaaart.com/,Reconditionneur français certifié usine (circuits courts)
+36,P2,Mistral Phone,Audité (0 prix - devis uniquement),mistral_phone,https://www.mistralphone.com/,"Formulaire de devis, aucun tarif public en ligne"
+37,P2,Stuff Telecom (ancien e-commerce),Audité (accessoires - 0 grille),stuff_telecom,https://stufftelecom.fr/,Ancien site e-commerce accessoires. Remplacé par les ateliers STUFF (Marseille/Aubagne/Aix) rang 50
+38,P2,SmartphonePro,Audité (0 prix - devis uniquement),smartphonepro,https://smartphonepro.fr/,"Réparateur Marseille, devis uniquement sans tarif public (WAF 403)"
+39,P2,i-Rep Marseille,Audité (devis uniquement),i_rep,https://i-rep.fr/,"Réparation à domicile/coursier, formulaire de devis sans grille publique"
+40,P2,Mister Minit,Audité (0 prix - devis boutique uniquement),mister_minit,https://misterminit.eu/fr_fr/,"Réseau national multiservices, devis en boutique uniquement (aucun tarif en ligne)"
+41,P2,Point Service Mobiles (PSM),Audité (intégré Save.co - devis boutique),psm,https://www.pointservicemobiles.com/,"Réseau historique désormais fusionné avec Save.co, devis comptoir"
+42,P2,Safe Réparation,Audité (0 prix - devis/RDV téléphone uniquement),safe_reparation,https://safe2013.fr/,"Réseau 6 magasins, aucun tarif public affiché, prise de rendez-vous téléphonique uniquement"
+43,P0,ProsMobile,Terminé (923 tarifs),prosmobile,https://prosmobile.fr/,"Atelier Strasbourg, très grosse grille interactive modèle × réparation"
+44,P0,Mon Réparateur Pro,Terminé (1490 tarifs),mon_reparateur_pro,https://www.monreparateurpro.fr/,"Atelier Clermont-Ferrand, très grande grille Apple, Samsung, Huawei, Oppo, Xiaomi, Vivo, etc."
+45,P0,Clinique Phone,Terminé (1007 tarifs),clinique_phone,https://clinique-phone.com/,"Catalogue par marque/modèle, prix directement affichés"
+46,P0,GO SMART Boulogne,Terminé (3 748 tarifs),go_smart,https://go-smart.fr/rendez-vous?appareil=smartphone,"926 modèles de smartphones extraits via interception API /api/data/tarifs"
+47,P0,Repairmen,Terminé (798 tarifs),repairmen,https://repairmen.fr/,"Atelier Toulouse, nombreux modèles, plusieurs niveaux qualité écran, batterie, connecteur, caméra"
+48,P0,Feexo,Terminé (20098 tarifs),feexo,https://feexo.fr/,"3 boutiques Occitanie (Toulouse, Montpellier, Pérols), extraction API Supabase PostgREST 20098 tarifs"
+49,P1,Repair-ME,Terminé (7753 tarifs),repair_me,https://repair-me.fr/,"Grille tarifaire Laval et Nantes, 827 modèles, 7753 tarifs extraits via API WordPress admin-ajax.php"
+50,P0,STUFF (5 ateliers PACA),Terminé (4880 tarifs),stuff,https://stuff-reparation.fr/,"5 ateliers PACA : Marseille (St-Ferréol), Aubagne, Aix-en-Provence, Nice, Antibes. 4880 tarifs extraits via API Hiboutik"
+51,P0,iMobStore,Terminé (566 tarifs),imobstore,https://imobstore.fr/,"La Penne-sur-Huveaune (Marseille Est). Grilles détaillées modèle × qualité écran (compatible, Soft OLED, OLED premium, origine Apple/Samsung/Google), 566 tarifs via WP REST API"
+52,P0,Planète Phone,Écarté (très peu de données),planete_phone,https://planetephone.fr/,Marseille 13013. Écarté car catalogue statique très restreint avec trop peu de données exploitables
+53,P0,URGENCE PHONE,Terminé (2634 tarifs),urgence_phone,https://urgence-phone.fr/tarifs-reparations/,"3 ateliers Toulon, La Seyne, Solliès. 2634 tarifs extraits sur 222 modèles (Apple, Samsung, Huawei, Oppo) via Google Sheets GViz API"
+54,P1,Pro Mobile 83,Terminé (367 tarifs),pro_mobile_83,https://promobile83.fr/,"Toulon et région PACA (La Ciotat, etc.). 367 tarifs extraits via WordPress REST API"
+55,P1,MonSAVMobile (SBE),Terminé (3936 tarifs),monsavmobile,https://monsavmobile.fr/,"Partenaire officiel agréé Samsung France et multi-constructeurs, 3936 tarifs extraits via API REST /wp-json"
+56,P1,Crash Mobile,Terminé (3800 tarifs),crash_mobile,https://www.crashmobile.fr/,"Réseau national, 3800 tarifs extraits sur 770 modèles via API Supabase PostgREST"
+57,P1,iPhoenix Avignon,Terminé (176 tarifs),iphoenix,https://www.iphoenix-reparation.com/,"Atelier Avignon labellisé QualiRépar, 176 tarifs extraits via WordPress REST API"
+58,P1,Capitaine Repair,Terminé (704 tarifs),capitaine_repair,https://capitainerepair.com/,"Service national par expédition, 704 tarifs extraits sur 180 modèles via tables HTML"
+59,P2,ATÉMIS,site web à ne pas scraper,atemis,https://atemis.eu/,"Centre de services agréé Apple (Nantes & national), pièces d'origine Apple, grille tarifaire officielle"
+60,P0,EIS Phones&PC,Terminé (2390 tarifs),eis_phones_pc,https://www.eisphonesandpc.fr/,"Sud 77, 2390 tarifs extraits sur 343 modèles via état déshydraté window.EIS_CATALOG"
+61,P1,La Paraphonie,Terminé (3984 tarifs),la_paraphonie,https://www.laparaphonie.fr/,"Réseau national E.Leclerc, 3984 tarifs extraits sur 697 modèles via API backend Etiseo"
+62,P1,MAC Phone / MC Phone,site web à ne pas scraper,mac_phone,https://reparer-iphone-lille.com/,"Atelier historique Lille, grille publique 16+ iPhone, Samsung, Huawei, Xiaomi"
+63,P1,SAM — Services Aux Mobiles,Terminé (150 tarifs),services_aux_mobiles,https://servicesauxmobiles.fr/,"Atelier Métropole Lilloise, 150 tarifs extraits via WordPress REST API"
+64,P1,StreetPhone,site web à ne pas scraper,streetphone,https://streetphone.fr/,"Grille publique iPhone 11 à 17, Galaxy S/A, Android"
+65,P1,ReeParts,site web à ne pas scraper,reeparts,https://reeparts.fr/,"Sélecteur de modèle iPhone 6 à 17 Pro Max, Samsung, Xiaomi, OnePlus, Oppo, Pixel, etc."
+66,P1,Repair Ninja,Terminé (108 tarifs),repair_ninja,https://repairninja.fr/,"Atelier Paris Bastille, 108 tarifs extraits sur 119 pages via Sitemap XML"
+67,P2,JecoRepair,site web à ne pas scraper,jecorepair,https://jecorepair.fr/,"Structure modèle → écran/batterie/vitre arrière/caméra/carte mère, Samsung, Xiaomi, Honor, Oppo, Realme"
+68,P2,Phone 44,site web à ne pas scraper,phone_44,https://phone44.fr/,"Atelier Nantes, grille publique iPhone et Samsung avec fourchettes par panne"
+69,P2,Nomophone,Terminé (130 offres),nomophone,https://nomophone.fr/,"Smartphones reconditionnés certifiés 24 mois, 130 offres extraites via Sitemap & Schema.org LD+JSON"
+70,P2,Fixmobile France,Terminé (795 tarifs),fixmobile,https://fixmobile.fr/,"Atelier SQY / Yvelines, 795 tarifs extraits sur 115 modèles via Sitemap et parsing multi-gabarits"
+71,P0,iServices,Terminé (3 540 tarifs),iservices,https://iservices.fr/,"2 magasins Marseille, Toulon, Montpellier et national. Catalogue très dense Apple, Samsung, Xiaomi, Huawei, Oppo, OnePlus, Google, iPad, Apple Watch, Galaxy Watch"
+72,P0,inforMathic.rep,Terminé (1 922 tarifs),informathic,https://www.informathic.fr/,"431 modèles smartphones, 24 tablettes, 31 PC, 21 consoles (PS4/PS5, Xbox, Switch). Devis public en ligne et envois postaux nationaux"
+73,P0,Alloréparation,Terminé (1 254 tarifs),alloreparation,https://alloreparation.fr/,"Pages tarifaires individuelles iPhone, Samsung, Xiaomi, Huawei, OnePlus, Pixel, Wiko, tablettes et consoles (Switch, PS4). Envoi national"
+74,P1,Mediaphone Discount,Terminé (4 120 tarifs),mediaphone_discount,https://www.mediaphone-discount.fr/,"Configurateur dédié montres connectées (Apple Watch, Galaxy Watch), tablettes et smartphones avec plusieurs qualités de pièces affichées"
+75,P1,Hyper Mobile Albi,Terminé (13 427 tarifs),hypermobile,https://www.hypermobile.fr/reparation,"Forte densité Samsung (95 Galaxy A, 40 Galaxy S, Note, Z, M) et Apple. Tablettes, Apple Watch, consoles et TV avec prix affichés"
+76,P1,Microtech86,Terminé (738 tarifs),microtech86,https://microtech86.fr/tarifs,"Grille publique avec paramètres d'URL (marque/modèle). Prestations techniques : micro-soudure, carte mère, Face ID, FPC, tablettes et consoles"
+77,P2,JD Tech Service,Terminé (1 045 tarifs),jd_techservice,https://jd-techservice.fr/tarifs-reparations,"124 smartphones et 57 tablettes (Apple, Samsung, Google, Xiaomi, Oppo, Surface, Lenovo Tab) avec tarifs configurables"
+78,P2,Koko Store,Terminé (621 tarifs),koko_store,https://koko-store.fr/,"Calculateur de devis instantané en 2 clics pour smartphones, tablettes, montres connectées, ordinateurs et consoles (Villeneuve-d'Ascq)"
+79,P2,Hoplatech,Terminé (1 347 tarifs),hoplatech,https://hoplatech.fr/,"Atelier labellisé QualiRépar, devis en ligne direct sans inscription pour smartphones, tablettes et consoles"
+80,P0,Largo,Terminé (1 430 offres),largo,https://www.largo.fr/,"Vente reconditionné (smartphones, tablettes, Mac, montres), catalogue multimarque avec prix, modèles, capacités, garantie 24 mois. Extraction Sitemap & JSON-LD"
+81,P0,Recommerce,Terminé (309 offres),recommerce,https://www.recommerce.com/fr/les-telephones-reconditionnes,"Vente smartphones reconditionnés, catalogue paginé 300+ modèles, prix, marques, états et stockages distincts"
+82,P1,asgoodasnew,Terminé (234 offres),asgoodasnew,https://asgoodasnew.fr/,"Vente smartphones, tablettes, Mac, smartwatches, 600+ articles avec grades esthétiques et configurations. Protection Cloudflare/Smoxy WAF"
+83,P0,CertiDeal,Terminé (198 offres),certideal,https://certideal.com/,"Vente smartphones et ordinateurs, catalogue structuré séries/marques/stockage/couleurs/états, 3700+ déclinaisons via Sitemap XML"
+84,P0,YesYes,Terminé (994 offres),yesyes,https://www.yes-yes.com/,"Vente smartphones reconditionnés avec batterie certifiée, catalogue structuré Nuxt.js SSR avec extraction directe du state déshydraté"
+85,P1,DBC MARSEILLE,Terminé (138 offres),dbc_marseille,https://www.dbcstore.fr/,"Marseille 13006 / CC Grand V. Rachat, réparation et vente smartphones reconditionnés (Apple/Samsung) avec catalogue Next.js RSC et prix boutiques"
+86,P3,Ninety Store,Audité (0 prix - infrastructure e-commerce 520 / formation),ninety_store,https://www.ninety-store.fr/,"Acteur local Marseille (Docks Village). Ancien domaine e-commerce ninety-store.fr en panne Cloudflare 520, site principal ninety.fr dédié formation sans catalogue tarifaire"
+87,P3,Vista Phone Marseille,Audité (0 prix - boutique physique devis comptoir uniquement),vista_phone,https://www.google.com/search?q=Vista+Phone+Marseille+site+officiel,Marseille 13015. Réparation téléphones/tablettes/consoles/PC. Point de vente physique sans boutique ni grille tarifaire web publique (devis comptoir/téléphone)
+88,P2,MobiFirst,Audité (0 grille par modèle - forfaits indicatifs Wix),mobifirst,https://www.reparation-telephone-marseille.fr/,"Marseille 13001. Site Wix (mobifirst.fr), aucun catalogue tarifaire par modèle/panne, devis sur formulaire ou forfaits très génériques"
+89,P3,IT Clinique Marseille,Audité (0 grille par modèle - taux horaire 89€/h uniquement),it_clinique,https://itclinique.fr/,"Marseille 13004. Dépannage Mac/PC/smartphones. Aucun tarif par modèle de smartphone, uniquement taux horaire main d'œuvre (89 € TTC/h) et devis sur diagnostic"
+90,P0,All4iphone,Terminé (346 tarifs),all4iphone,https://www.all4iphone.fr/,"Réparation smartphones et tablettes Apple/Samsung, 346 forfaits de réparation individuels (frep) avec prix fixes TTC"
+91,P1,C&C,Terminé (538 tarifs),cec,https://www.cec.fr/,"Apple Premium Partner France, 538 tarifs officiels constructeur Apple (iPhone, iPad, Watch, AirPods) via sélecteur interactif"
+92,P0,Pulsotech,Terminé (68 tarifs),pulsotech,https://pulsotech.fr/catalogue,"Atelier Dijon, catalogue sous /repair-shop/public/, 68 forfaits avec prix fixes (autres pannes sur devis 0€ exclus)"
+93,P0,SLM Mobiles,Terminé (8 460 tarifs),slmmobiles,https://slmmobiles.fr/,"Atelier Vannes (labellisé QualiRépar), 8 460 tarifs multi-gammes (ÉCO, CLASSIC, ORIGINE) sur 1 552 modèles smartphones"
+94,P1,NinjaPhone,Terminé (161 tarifs),ninjaphone,https://ninjaphone.fr/tarifs/,"Atelier Annemasse/Genève, 161 tarifs fermes modèle × panne (iPhone, Galaxy, Xiaomi, Pixel)"
+95,P0,Adone Informatique,Audité (0 grille par modèle - fourchettes indicatives / devis),adone_informatique,https://www.adone-informatique.fr/depannage-informatique-marseille/telephone,"Marseille (6e/8e/13e). Fourchettes indicatives (Écran iPhone 79-179€, Android 59-149€, Batterie 39-79€), aucun tarif fixe par modèle (devis obligatoire)"
+96,P1,Back2Fix,Terminé (372 tarifs),back2fix,https://www.back2fix.fr/samsung/,"Atelier Pont-de-Beauvoisin (Savoie/Isère), 128 fiches modèles (iPhone, Galaxy, Pixel, Xiaomi, Huawei) avec tarifs fermes pièce et pose"
+97,P1,Réparation Mobiles,Terminé (815 tarifs),reparationmobiles,https://www.reparationmobiles.fr/,"Atelier Lille (260 rue des Postes), tables complètes par modèle (iPhone, Samsung Galaxy, Xiaomi) avec prix fermes et durées"
+98,P1,PHONY,Terminé (3 298 tarifs),phony,https://phony.fr/tarifs-reparation-telephone-tours,"Atelier Tours/Saint-Avertin, extraction API catalogue_grid sur 52 panneaux (9 marques : Apple, Samsung, Pixel, Xiaomi, Huawei, OPPO, Vivo, Realme, Motorola) avec gammes Premium et Originale"
+99,P0,Iphumat,Terminé (353 tarifs),iphumat,https://iphumat.com/pages/tarifs-reparation-iphone,"Atelier réparation Apple iPhone, 353 forfaits par modèle et type d'intervention (écrans, batteries, connecteurs, dos)"
+100,P0,World Mobile,Terminé (418 tarifs),reparationportable,https://reparationportable.fr/tarifs.html,"Atelier Saint-Maur-des-Fossés, 418 forfaits multi-marques (Apple, Samsung Galaxy, Huawei, Xiaomi) avec prix fermes"
+101,P0,5G Mobile,Terminé (123 tarifs),5gmobile,https://www.5gmobileparis.fr/reparation.php,"Atelier Paris 17e, 123 forfaits réparation Apple iPhone et iPad par modèle"
+102,P0,Expert Tel & Ordi,Terminé (426 tarifs),expert_tel,https://expert-tel-et-ordi.fr/nos-tarifs,"Atelier Marseille, 426 forfaits fermes iPhone, Galaxy, Xiaomi, Huawei, tablettes et PC"
+103,P0,Phone Clinic,Terminé (173 tarifs),phone_clinic,https://www.phone-clinic.fr/tarifs,"Atelier Voiron (Isère), 173 forfaits détaillés iPhone (Écran Éco, Écran Perf, Batterie, Charge, Vitre arrière)"
+104,P0,Docteur iPhone,Terminé (151 tarifs),dr_iphone,https://dr-iphone.fr/pages/tarifs-docteur-iphone-bordeaux,"Atelier Bordeaux, 151 forfaits iPhone avec triple gamme écran (Budget, Premium, Apple Original), batterie, dos, charge"
+105,P0,Réparation Téléphone Palaiseau,Terminé (165 tarifs),reparationtelephonepalaiseau,https://reparationtelephonepalaiseau.fr/tarifs/,"Atelier Palaiseau (Essonne), 165 forfaits multi-marques (iPhone, Samsung Galaxy S, Huawei Mate, Pixel, Xiaomi)"
+106,P0,SOS Phone Pro,Terminé (26 tarifs),sosphonepro,https://sosphonepro.fr/pages/reparation-ecran.html,"Atelier réparation, 26 tarifs de remplacement d'écrans standard iPhone par modèle"
+107,P0,L'Atelier de Mathéo,Terminé (51 tarifs),atelierdematheo,https://atelierdematheo.fr/telephonie.html,"Atelier réparation, 51 forfaits iPhone (écrans Standard/Supérieur/Origine, batteries, connecteurs, vitres)"
+108,P0,Easy Fix,Terminé (37 tarifs),easyfix,https://www.easy-fix.fr/tarifs.html,"Atelier réparation, 37 forfaits fermes iPhone (écrans Premium, batteries, connecteurs)"
+109,P0,YouPhones,Terminé (508 tarifs),youphones,https://www.youphones.fr/tarifs/,"Atelier Poitiers, 508 forfaits fermes sur 43 fiches modèles iPhone (écrans OLED/Standard, batteries Premium, dos, caméras, connecteurs)"
+110,P0,Infonatic,Terminé (4 192 tarifs),infonatic,https://infonatic.fr/nos-tarifs,"Atelier Manosque (Alpes-de-Haute-Provence), 4 192 forfaits multi-marques (Apple, Samsung, Google, Xiaomi) avec gammes Originaux et Premium"
+111,P3,Casper Phone,Audité (0 tarif - formulaire de devis et horaires comptoir),casperphone,https://www.casperphone.com/reparation-devis/,"Paris 19e. Boutique physique et formulaire de contact/devis sur demande sans grille tarifaire publique"
+112,P0,Atelier Tech,Terminé (3 209 tarifs),atelier_tech,https://atelier-tech.net/reparation,"Atelier Angers / correspondance postale France, 3 209 forfaits sur 500 modèles (Apple, Samsung, Xiaomi) avec double niveau de prix (Sur place / Envoi postal) et gammes OEM vs Atelier"
+113,P0,Brico-Phone,Terminé (4 622 pièces),brico_phone,https://www.brico-phone.com/,"Fournisseur leader pièces détachées smartphones (117 modèles, écrans/batteries/connecteurs/dos/caméras)"
+114,P0,SOSav,Terminé (2 118 pièces),sosav,https://www.sosav.fr/,"Fournisseur pièces détachées certifiées (60 modèles iPhone/Samsung/Huawei, gammes Basic/Premium/Origine)"
+115,P0,Pieces2Mobile,Terminé (988 pièces),pieces2mobile,https://www.pieces2mobile.com/,"Grossiste pièces détachées B2B (60 modèles, écrans Service Pack/Optimum, batteries, châssis)"
+116,P0,iFixit France,Terminé (574 pièces),ifixit,https://www.ifixit.com/Parts/iPhone,"Boutique officielle pièces et FixKits (40 modèles iPhone, écrans, batteries, connecteurs certifiés)"
+117,P0,Free Mobile Shop,Terminé (78 offres),free_mobile,https://mobile.free.fr/shop,"Catalogue smartphones neufs et reconditionnés vendus sans forfait (prix comptant nu, remises et ODR)"
+118,P1,AxyDis,Terminé (64 terminaux),axydis,https://www.axydis.fr/,"Catalogue B2B flottes télécom entreprises (Apple, Samsung, Google, Xiaomi) avec prix HT et TTC"
+119,P1,Refurbed,Terminé (16 offres),refurbed,https://www.refurbed.fr/c/telephones-portables/,"Place de marché européenne de smartphones reconditionnés avec garantie 12 mois"
+120,P2,Rebuy,Audité (WAF 429 - Cloudflare challenge anti-bot),rebuy,https://www.rebuy.fr/,"E-commerce reconditionné protégé par challenge Cloudflare anti-scraping"
+121,P2,Swappie,Audité (WAF 403 - Cloudflare Turnstile bot blocker),swappie,https://swappie.com/fr/iphone/,"Vente iPhone reconditionné protégée par Cloudflare Turnstile"
+122,P2,Ubaldi,Audité (WAF 403 - DataDome anti-bot),ubaldi,https://www.ubaldi.com/,"Marketplace protégée par protection comportementale DataDome"
+123,P2,Carrefour,Audité (WAF 403 - Cloudflare WAF marketplace),carrefour,https://www.carrefour.fr/,"E-commerce et marketplace protégés par Cloudflare WAF"
+124,P2,Fnac,Audité (WAF 403 - Akamai Bot Manager),fnac,https://www.fnac.com/,"Catalogue smartphone et marketplace protégé par Akamai Bot Manager"
+125,P2,Bouygues Telecom,Audité (SPA Angular / GraphQL non indexé),bouygues,https://www.bouyguestelecom.fr/,"Catalogue rendu dynamiquement côté client sans flux de données statique public"
+126,P2,SFR,Audité (Microfrontends SPA / API 500 sans token),sfr,https://www.sfr.fr/offre-mobile/telephones/sans-forfait,"Boutique en ligne avec API interne nécessitant session de canal et microfrontends React"
+127,P1,LesMobiles.com,Terminé (1 357 offres),lesmobiles,https://www.lesmobiles.com/telephones/,"Observatoire de référence et comparateur de marché français, 1 357 prix de marché observés sur 855 modèles smartphones Neuf et Reconditionné"

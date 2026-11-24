@@ -1,0 +1,1 @@
+"""Koko Store scraper package."""

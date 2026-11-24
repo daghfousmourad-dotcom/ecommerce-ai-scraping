@@ -1,0 +1,1242 @@
+[
+  {
+    "source": "iriparo",
+    "brands_count": 40,
+    "models_count": 2018,
+    "total_offers": 12112,
+    "rep_types_count": 19,
+    "avg_models_per_brand": 50.5,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        253
+      ],
+      [
+        "Xiaomi",
+        186
+      ],
+      [
+        "Huawei",
+        164
+      ],
+      [
+        "Lg",
+        159
+      ],
+      [
+        "Motorola",
+        138
+      ]
+    ],
+    "avg_rep_types_per_model": 3.45,
+    "max_rep_types_per_model": 14,
+    "sample_rep_types": [
+      "antenna",
+      "antenna_wifi",
+      "back_cover",
+      "battery",
+      "buttons",
+      "charging_port",
+      "cleaning",
+      "cleaning_parts"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "feexo",
+    "brands_count": 19,
+    "models_count": 1917,
+    "total_offers": 19794,
+    "rep_types_count": 15,
+    "avg_models_per_brand": 100.9,
+    "top_brands_by_models": [
+      [
+        "Oppo",
+        250
+      ],
+      [
+        "Motorola",
+        227
+      ],
+      [
+        "Realme",
+        208
+      ],
+      [
+        "Huawei",
+        193
+      ],
+      [
+        "Xiaomi",
+        188
+      ]
+    ],
+    "avg_rep_types_per_model": 4.54,
+    "max_rep_types_per_model": 10,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "buttons",
+      "charging_port",
+      "cleaning",
+      "diagnostics",
+      "front_camera",
+      "is_valid_repair"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "pixel_store",
+    "brands_count": 18,
+    "models_count": 725,
+    "total_offers": 16008,
+    "rep_types_count": 17,
+    "avg_models_per_brand": 40.3,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        139
+      ],
+      [
+        "Xiaomi",
+        113
+      ],
+      [
+        "Oppo",
+        66
+      ],
+      [
+        "Honor",
+        54
+      ],
+      [
+        "Realme",
+        49
+      ]
+    ],
+    "avg_rep_types_per_model": 11.62,
+    "max_rep_types_per_model": 15,
+    "sample_rep_types": [
+      "antenna",
+      "back_cover",
+      "battery",
+      "buttons",
+      "charging_port",
+      "diagnostics",
+      "earpiece",
+      "front_camera"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "wefix",
+    "brands_count": 20,
+    "models_count": 1046,
+    "total_offers": 15919,
+    "rep_types_count": 1,
+    "avg_models_per_brand": 52.3,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        220
+      ],
+      [
+        "Xiaomi",
+        162
+      ],
+      [
+        "Motorola",
+        126
+      ],
+      [
+        "Honor",
+        70
+      ],
+      [
+        "Huawei",
+        67
+      ]
+    ],
+    "avg_rep_types_per_model": 1.0,
+    "max_rep_types_per_model": 1,
+    "sample_rep_types": [
+      "diagnostics"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "utopya",
+    "brands_count": 19,
+    "models_count": 970,
+    "total_offers": 10036,
+    "rep_types_count": 21,
+    "avg_models_per_brand": 51.1,
+    "top_brands_by_models": [
+      [
+        "Autres",
+        244
+      ],
+      [
+        "Samsung",
+        196
+      ],
+      [
+        "Xiaomi",
+        187
+      ],
+      [
+        "Motorola",
+        84
+      ],
+      [
+        "Apple",
+        73
+      ]
+    ],
+    "avg_rep_types_per_model": 3.97,
+    "max_rep_types_per_model": 14,
+    "sample_rep_types": [
+      "Batterie",
+      "antenna",
+      "back_cover",
+      "battery",
+      "buttons",
+      "charging_port",
+      "diagnostics",
+      "earpiece"
+    ],
+    "is_b2b": true
+  },
+  {
+    "source": "docteur_it",
+    "brands_count": 22,
+    "models_count": 458,
+    "total_offers": 3844,
+    "rep_types_count": 15,
+    "avg_models_per_brand": 20.8,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        106
+      ],
+      [
+        "Xiaomi",
+        91
+      ],
+      [
+        "Huawei",
+        41
+      ],
+      [
+        "Oppo",
+        33
+      ],
+      [
+        "Apple",
+        33
+      ]
+    ],
+    "avg_rep_types_per_model": 5.95,
+    "max_rep_types_per_model": 15,
+    "sample_rep_types": [
+      "antenna",
+      "back_cover",
+      "battery",
+      "buttons",
+      "charging_port",
+      "diagnostics",
+      "earpiece",
+      "front_camera"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "phonethik",
+    "brands_count": 18,
+    "models_count": 693,
+    "total_offers": 6644,
+    "rep_types_count": 17,
+    "avg_models_per_brand": 38.5,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        151
+      ],
+      [
+        "Xiaomi",
+        134
+      ],
+      [
+        "Huawei",
+        59
+      ],
+      [
+        "Motorola",
+        55
+      ],
+      [
+        "Honor",
+        47
+      ]
+    ],
+    "avg_rep_types_per_model": 8.55,
+    "max_rep_types_per_model": 13,
+    "sample_rep_types": [
+      "antenna",
+      "back_cover",
+      "battery",
+      "buttons",
+      "camera",
+      "charging_port",
+      "diagnostics",
+      "earpiece"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "crash_mobile",
+    "brands_count": 16,
+    "models_count": 730,
+    "total_offers": 3678,
+    "rep_types_count": 5,
+    "avg_models_per_brand": 45.6,
+    "top_brands_by_models": [
+      [
+        "Xiaomi",
+        128
+      ],
+      [
+        "Samsung",
+        80
+      ],
+      [
+        "Huawei",
+        67
+      ],
+      [
+        "Oppo",
+        53
+      ],
+      [
+        "Honor",
+        52
+      ]
+    ],
+    "avg_rep_types_per_model": 5.0,
+    "max_rep_types_per_model": 5,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "charging_port",
+      "rear_camera",
+      "screen"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "go_smart",
+    "brands_count": 17,
+    "models_count": 475,
+    "total_offers": 3749,
+    "rep_types_count": 11,
+    "avg_models_per_brand": 27.9,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        142
+      ],
+      [
+        "Xiaomi",
+        93
+      ],
+      [
+        "Apple",
+        49
+      ],
+      [
+        "Honor",
+        36
+      ],
+      [
+        "Google",
+        26
+      ]
+    ],
+    "avg_rep_types_per_model": 5.56,
+    "max_rep_types_per_model": 10,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "charging_port",
+      "diagnostics",
+      "earpiece",
+      "front_camera",
+      "motherboard",
+      "other"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "smart_repair_63",
+    "brands_count": 13,
+    "models_count": 480,
+    "total_offers": 1988,
+    "rep_types_count": 5,
+    "avg_models_per_brand": 36.9,
+    "top_brands_by_models": [
+      [
+        "Xiaomi",
+        168
+      ],
+      [
+        "Samsung",
+        143
+      ],
+      [
+        "Oppo",
+        50
+      ],
+      [
+        "Apple",
+        44
+      ],
+      [
+        "Huawei",
+        15
+      ]
+    ],
+    "avg_rep_types_per_model": 4.01,
+    "max_rep_types_per_model": 5,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "charging_port",
+      "rear_camera",
+      "screen"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "mon_reparateur_pro",
+    "brands_count": 13,
+    "models_count": 482,
+    "total_offers": 1487,
+    "rep_types_count": 3,
+    "avg_models_per_brand": 37.1,
+    "top_brands_by_models": [
+      [
+        "Xiaomi",
+        86
+      ],
+      [
+        "Samsung",
+        69
+      ],
+      [
+        "Motorola",
+        58
+      ],
+      [
+        "Realme",
+        47
+      ],
+      [
+        "Apple",
+        42
+      ]
+    ],
+    "avg_rep_types_per_model": 2.96,
+    "max_rep_types_per_model": 3,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "screen"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "save",
+    "brands_count": 14,
+    "models_count": 451,
+    "total_offers": 3536,
+    "rep_types_count": 14,
+    "avg_models_per_brand": 32.2,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        142
+      ],
+      [
+        "Xiaomi",
+        74
+      ],
+      [
+        "Huawei",
+        74
+      ],
+      [
+        "Apple",
+        40
+      ],
+      [
+        "Sony",
+        28
+      ]
+    ],
+    "avg_rep_types_per_model": 1.01,
+    "max_rep_types_per_model": 2,
+    "sample_rep_types": [
+      "antenna",
+      "back_cover",
+      "battery",
+      "charging_port",
+      "diagnostics",
+      "earpiece",
+      "front_camera",
+      "microphone"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "phone_cbd",
+    "brands_count": 12,
+    "models_count": 622,
+    "total_offers": 2783,
+    "rep_types_count": 15,
+    "avg_models_per_brand": 51.8,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        187
+      ],
+      [
+        "Xiaomi",
+        120
+      ],
+      [
+        "Huawei",
+        71
+      ],
+      [
+        "Oppo",
+        58
+      ],
+      [
+        "Apple",
+        49
+      ]
+    ],
+    "avg_rep_types_per_model": 1.0,
+    "max_rep_types_per_model": 2,
+    "sample_rep_types": [
+      "antenna",
+      "back_cover",
+      "battery",
+      "buttons",
+      "charging_port",
+      "diagnostics",
+      "earpiece",
+      "front_camera"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "clinique_phone",
+    "brands_count": 12,
+    "models_count": 329,
+    "total_offers": 1001,
+    "rep_types_count": 3,
+    "avg_models_per_brand": 27.4,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        74
+      ],
+      [
+        "Huawei",
+        47
+      ],
+      [
+        "Honor",
+        40
+      ],
+      [
+        "Apple",
+        30
+      ],
+      [
+        "Xiaomi",
+        24
+      ]
+    ],
+    "avg_rep_types_per_model": 2.93,
+    "max_rep_types_per_model": 3,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "screen"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "repair_me",
+    "brands_count": 9,
+    "models_count": 407,
+    "total_offers": 7408,
+    "rep_types_count": 14,
+    "avg_models_per_brand": 45.2,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        105
+      ],
+      [
+        "Xiaomi",
+        81
+      ],
+      [
+        "Apple",
+        50
+      ],
+      [
+        "Oppo",
+        45
+      ],
+      [
+        "Google",
+        32
+      ]
+    ],
+    "avg_rep_types_per_model": 6.88,
+    "max_rep_types_per_model": 9,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "buttons",
+      "charging_port",
+      "diagnostics",
+      "front_camera",
+      "lens",
+      "other"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "monsavmobile",
+    "brands_count": 7,
+    "models_count": 441,
+    "total_offers": 3499,
+    "rep_types_count": 10,
+    "avg_models_per_brand": 63.0,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        119
+      ],
+      [
+        "Huawei",
+        110
+      ],
+      [
+        "Apple",
+        103
+      ],
+      [
+        "Xiaomi",
+        58
+      ],
+      [
+        "Oppo",
+        42
+      ]
+    ],
+    "avg_rep_types_per_model": 7.02,
+    "max_rep_types_per_model": 10,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "charging_port",
+      "desoxydation",
+      "diagnostics",
+      "motherboard",
+      "rear_camera",
+      "screen"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "repairmen",
+    "brands_count": 10,
+    "models_count": 78,
+    "total_offers": 798,
+    "rep_types_count": 9,
+    "avg_models_per_brand": 7.8,
+    "top_brands_by_models": [
+      [
+        "Apple",
+        31
+      ],
+      [
+        "Samsung",
+        8
+      ],
+      [
+        "Xiaomi",
+        6
+      ],
+      [
+        "Honor",
+        5
+      ],
+      [
+        "Huawei",
+        5
+      ]
+    ],
+    "avg_rep_types_per_model": 7.87,
+    "max_rep_types_per_model": 9,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "buttons",
+      "charging_port",
+      "front_camera",
+      "other",
+      "rear_camera",
+      "screen"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "prosmobile",
+    "brands_count": 10,
+    "models_count": 213,
+    "total_offers": 923,
+    "rep_types_count": 11,
+    "avg_models_per_brand": 21.3,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        129
+      ],
+      [
+        "Apple",
+        37
+      ],
+      [
+        "Xiaomi",
+        22
+      ],
+      [
+        "Motorola",
+        11
+      ],
+      [
+        "Huawei",
+        5
+      ]
+    ],
+    "avg_rep_types_per_model": 3.76,
+    "max_rep_types_per_model": 8,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "buttons",
+      "charging_port",
+      "earpiece",
+      "front_camera",
+      "other",
+      "rear_camera"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "stuff",
+    "brands_count": 9,
+    "models_count": 290,
+    "total_offers": 4760,
+    "rep_types_count": 12,
+    "avg_models_per_brand": 32.2,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        115
+      ],
+      [
+        "Xiaomi",
+        61
+      ],
+      [
+        "Apple",
+        39
+      ],
+      [
+        "Huawei",
+        30
+      ],
+      [
+        "Oppo",
+        21
+      ]
+    ],
+    "avg_rep_types_per_model": 3.03,
+    "max_rep_types_per_model": 10,
+    "sample_rep_types": [
+      "antenna",
+      "back_cover",
+      "battery",
+      "buttons",
+      "charging_port",
+      "earpiece",
+      "front_camera",
+      "other"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "eis_phones_pc",
+    "brands_count": 5,
+    "models_count": 341,
+    "total_offers": 2382,
+    "rep_types_count": 5,
+    "avg_models_per_brand": 68.2,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        154
+      ],
+      [
+        "Xiaomi",
+        144
+      ],
+      [
+        "Apple",
+        41
+      ],
+      [
+        "Google",
+        1
+      ],
+      [
+        "Huawei",
+        1
+      ]
+    ],
+    "avg_rep_types_per_model": 4.94,
+    "max_rep_types_per_model": 5,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "charging_port",
+      "rear_camera",
+      "screen"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "pixou_phone",
+    "brands_count": 4,
+    "models_count": 386,
+    "total_offers": 5322,
+    "rep_types_count": 15,
+    "avg_models_per_brand": 96.5,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        217
+      ],
+      [
+        "Xiaomi",
+        110
+      ],
+      [
+        "Apple",
+        46
+      ],
+      [
+        "Google",
+        13
+      ]
+    ],
+    "avg_rep_types_per_model": 6.0,
+    "max_rep_types_per_model": 13,
+    "sample_rep_types": [
+      "antenna",
+      "back_cover",
+      "battery",
+      "buttons",
+      "charging_port",
+      "diagnostics",
+      "front_camera",
+      "microphone"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "corner_mobile",
+    "brands_count": 7,
+    "models_count": 190,
+    "total_offers": 570,
+    "rep_types_count": 3,
+    "avg_models_per_brand": 27.1,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        60
+      ],
+      [
+        "Apple",
+        46
+      ],
+      [
+        "Xiaomi",
+        40
+      ],
+      [
+        "Huawei",
+        14
+      ],
+      [
+        "Google",
+        12
+      ]
+    ],
+    "avg_rep_types_per_model": 2.99,
+    "max_rep_types_per_model": 3,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "screen"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "phone_express",
+    "brands_count": 7,
+    "models_count": 65,
+    "total_offers": 286,
+    "rep_types_count": 5,
+    "avg_models_per_brand": 9.3,
+    "top_brands_by_models": [
+      [
+        "Apple",
+        26
+      ],
+      [
+        "Samsung",
+        21
+      ],
+      [
+        "Huawei",
+        4
+      ],
+      [
+        "Xiaomi",
+        4
+      ],
+      [
+        "Oneplus",
+        4
+      ]
+    ],
+    "avg_rep_types_per_model": 4.06,
+    "max_rep_types_per_model": 5,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "charging_port",
+      "rear_camera",
+      "screen"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "urgence_phone",
+    "brands_count": 4,
+    "models_count": 218,
+    "total_offers": 2564,
+    "rep_types_count": 4,
+    "avg_models_per_brand": 54.5,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        100
+      ],
+      [
+        "Oppo",
+        55
+      ],
+      [
+        "Apple",
+        32
+      ],
+      [
+        "Huawei",
+        31
+      ]
+    ],
+    "avg_rep_types_per_model": 3.8,
+    "max_rep_types_per_model": 4,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "charging_port",
+      "screen"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "hoplatech",
+    "brands_count": 2,
+    "models_count": 111,
+    "total_offers": 1345,
+    "rep_types_count": 9,
+    "avg_models_per_brand": 55.5,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        90
+      ],
+      [
+        "Apple",
+        21
+      ]
+    ],
+    "avg_rep_types_per_model": 7.34,
+    "max_rep_types_per_model": 8,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "charging_port",
+      "earpiece",
+      "other",
+      "rear_camera",
+      "screen",
+      "speaker"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "imobstore",
+    "brands_count": 3,
+    "models_count": 56,
+    "total_offers": 510,
+    "rep_types_count": 9,
+    "avg_models_per_brand": 18.7,
+    "top_brands_by_models": [
+      [
+        "Apple",
+        35
+      ],
+      [
+        "Samsung",
+        17
+      ],
+      [
+        "Google",
+        4
+      ]
+    ],
+    "avg_rep_types_per_model": 6.41,
+    "max_rep_types_per_model": 8,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "charging_port",
+      "diagnostics",
+      "front_camera",
+      "motherboard",
+      "other",
+      "rear_camera"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "oppo",
+    "brands_count": 1,
+    "models_count": 26,
+    "total_offers": 286,
+    "rep_types_count": 13,
+    "avg_models_per_brand": 26.0,
+    "top_brands_by_models": [
+      [
+        "Oppo",
+        26
+      ]
+    ],
+    "avg_rep_types_per_model": 8.69,
+    "max_rep_types_per_model": 12,
+    "sample_rep_types": [
+      "antenna",
+      "back_cover",
+      "battery",
+      "buttons",
+      "charging_port",
+      "earpiece",
+      "front_camera",
+      "microphone"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "google",
+    "brands_count": 1,
+    "models_count": 26,
+    "total_offers": 326,
+    "rep_types_count": 15,
+    "avg_models_per_brand": 26.0,
+    "top_brands_by_models": [
+      [
+        "Google",
+        26
+      ]
+    ],
+    "avg_rep_types_per_model": 7.77,
+    "max_rep_types_per_model": 12,
+    "sample_rep_types": [
+      "antenna",
+      "back_cover",
+      "battery",
+      "buttons",
+      "charging_port",
+      "diagnostics",
+      "earpiece",
+      "front_camera"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "xiaomi",
+    "brands_count": 3,
+    "models_count": 71,
+    "total_offers": 339,
+    "rep_types_count": 5,
+    "avg_models_per_brand": 23.7,
+    "top_brands_by_models": [
+      [
+        "Redmi",
+        36
+      ],
+      [
+        "Poco",
+        18
+      ],
+      [
+        "Xiaomi",
+        17
+      ]
+    ],
+    "avg_rep_types_per_model": 1.06,
+    "max_rep_types_per_model": 3,
+    "sample_rep_types": [
+      "diagnostics",
+      "earpiece",
+      "motherboard",
+      "other",
+      "screen"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "samsung_repair",
+    "brands_count": 1,
+    "models_count": 72,
+    "total_offers": 382,
+    "rep_types_count": 5,
+    "avg_models_per_brand": 72.0,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        72
+      ]
+    ],
+    "avg_rep_types_per_model": 5.0,
+    "max_rep_types_per_model": 5,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "charging_port",
+      "rear_camera",
+      "screen"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "honor",
+    "brands_count": 1,
+    "models_count": 56,
+    "total_offers": 381,
+    "rep_types_count": 9,
+    "avg_models_per_brand": 56.0,
+    "top_brands_by_models": [
+      [
+        "Honor",
+        56
+      ]
+    ],
+    "avg_rep_types_per_model": 4.93,
+    "max_rep_types_per_model": 6,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "charging_port",
+      "earpiece",
+      "front_camera",
+      "motherboard",
+      "other",
+      "rear_camera"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "apple_repair",
+    "brands_count": 1,
+    "models_count": 42,
+    "total_offers": 203,
+    "rep_types_count": 6,
+    "avg_models_per_brand": 42.0,
+    "top_brands_by_models": [
+      [
+        "Apple",
+        42
+      ]
+    ],
+    "avg_rep_types_per_model": 3.9,
+    "max_rep_types_per_model": 5,
+    "sample_rep_types": [
+      "back_cover",
+      "battery",
+      "diagnostics",
+      "other",
+      "rear_camera",
+      "screen"
+    ],
+    "is_b2b": false
+  },
+  {
+    "source": "targets",
+    "brands_count": 2,
+    "models_count": 4,
+    "total_offers": 406,
+    "rep_types_count": 3,
+    "avg_models_per_brand": 2.0,
+    "top_brands_by_models": [
+      [
+        "Samsung",
+        3
+      ],
+      [
+        "Xiaomi",
+        1
+      ]
+    ],
+    "avg_rep_types_per_model": 1.0,
+    "max_rep_types_per_model": 1,
+    "sample_rep_types": [
+      "battery",
+      "diagnostics",
+      "screen"
+    ],
+    "is_b2b": false
+  }
+]

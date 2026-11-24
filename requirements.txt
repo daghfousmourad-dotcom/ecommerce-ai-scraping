@@ -1,0 +1,17 @@
+# ==============================================================================
+# E-commerce AI V2 — Dépendances Python
+# ==============================================================================
+
+# Collecte Web & Scraping
+requests>=2.32.3
+urllib3>=2.0.0
+beautifulsoup4>=4.12.3
+playwright>=1.40.0
+seleniumbase>=4.20.0
+tqdm>=4.66.0
+
+# Serveur Web & Async
+aiohttp>=3.9.0
+
+# Environnement & Outils
+python-dotenv>=1.0.1

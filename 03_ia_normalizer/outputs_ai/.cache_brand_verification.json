@@ -1,0 +1,191 @@
+{
+  "sony playstation": {
+    "canonical_brand": "Sony Playstation",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "microsoft xbox": {
+    "canonical_brand": "Microsoft Xbox",
+    "status": "NOT_SMARTPHONE",
+    "is_smartphone_brand": false,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "microsoft": {
+    "canonical_brand": "Microsoft",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "nubia": {
+    "canonical_brand": "Nubia",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "cmf": {
+    "canonical_brand": "Cmf",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "blackberry": {
+    "canonical_brand": "Blackberry",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "générique": {
+    "canonical_brand": "Générique",
+    "status": "UNVERIFIED",
+    "is_smartphone_brand": true,
+    "verification_source": "unverified_fallback",
+    "confidence": 0.7
+  },
+  "black shark": {
+    "canonical_brand": "Black Shark",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "autre marque": {
+    "canonical_brand": "Autre Marque",
+    "status": "UNVERIFIED",
+    "is_smartphone_brand": true,
+    "verification_source": "unverified_fallback",
+    "confidence": 0.7
+  },
+  "kobo": {
+    "canonical_brand": "Kobo",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "blue": {
+    "canonical_brand": "Blue",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "informatique": {
+    "canonical_brand": "Informatique",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "pc / mac": {
+    "canonical_brand": "Pc / Mac",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "tablettes (ipad / android)": {
+    "canonical_brand": "Tablettes (Ipad / Android)",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "consoles (sony/nintendo/microsoft)": {
+    "canonical_brand": "Consoles (Sony/Nintendo/Microsoft)",
+    "status": "NOT_SMARTPHONE",
+    "is_smartphone_brand": false,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "android / autres": {
+    "canonical_brand": "Android / Autres",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "smartphone": {
+    "canonical_brand": "Smartphone",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "bq": {
+    "canonical_brand": "Bq",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "dyson": {
+    "canonical_brand": "Dyson",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "service": {
+    "canonical_brand": "Service",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "vitre en verre trempé": {
+    "canonical_brand": "Vitre En Verre Trempé",
+    "status": "UNVERIFIED",
+    "is_smartphone_brand": true,
+    "verification_source": "unverified_fallback",
+    "confidence": 0.7
+  },
+  "amazon": {
+    "canonical_brand": "Amazon",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "meta": {
+    "canonical_brand": "Meta",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "autre": {
+    "canonical_brand": "Autre",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "asus-pc": {
+    "canonical_brand": "Asus-Pc",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "otterbox": {
+    "canonical_brand": "Otterbox",
+    "status": "VERIFIED_EXTERNAL",
+    "is_smartphone_brand": true,
+    "verification_source": "wikipedia",
+    "confidence": 0.98
+  },
+  "pepkoo": {
+    "canonical_brand": "Pepkoo",
+    "status": "UNVERIFIED",
+    "is_smartphone_brand": true,
+    "verification_source": "unverified_fallback",
+    "confidence": 0.7
+  }
+}

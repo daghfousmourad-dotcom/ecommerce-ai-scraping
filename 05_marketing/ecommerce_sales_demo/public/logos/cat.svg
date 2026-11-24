@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 100" width="240" height="100">
+  <rect width="240" height="100" rx="16" fill="#fef08a"/>
+  <path d="M70 20 L110 80 L30 80 Z" fill="#facc15"/>
+  <text x="70" y="68" text-anchor="middle" fill="#000" font-size="20" font-weight="900" font-family="Impact, sans-serif">CAT</text>
+  <text x="155" y="60" text-anchor="middle" fill="#000" font-size="30" font-weight="900" font-family="system-ui, sans-serif">CAT</text>
+</svg>

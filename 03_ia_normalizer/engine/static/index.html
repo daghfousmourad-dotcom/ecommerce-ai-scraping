@@ -1,0 +1,3159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce AI V2 — AI Normalizer Studio & Console de Production</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070913;
+      --card-bg: rgba(15, 23, 42, 0.65);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #6366f1;
+      --primary-glow: rgba(99, 102, 241, 0.25);
+      --cyan: #06b6d4;
+      --cyan-glow: rgba(6, 182, 212, 0.25);
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.25);
+      --amber: #f59e0b;
+      --rose: #ef4444;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.08) 0px, transparent 50%);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-bottom: 60px;
+    }
+
+    /* HEADER */
+    header {
+      background: rgba(10, 15, 29, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--primary), var(--cyan));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 20px var(--primary-glow);
+    }
+
+    .brand-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #fff, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .system-badges {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+    }
+
+    .badge-m4 {
+      background: rgba(99, 102, 241, 0.1);
+      border-color: rgba(99, 102, 241, 0.3);
+      color: #a5b4fc;
+    }
+
+    .badge-ollama {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: rgba(16, 185, 129, 0.3);
+      color: #6ee7b7;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 10px #10b981;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* NAVIGATION SEGMENTÉE */
+    .sub-nav {
+      max-width: 1440px;
+      margin: 20px auto 0;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tabs-segmented {
+      display: inline-flex;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(16px);
+      padding: 6px;
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      gap: 8px;
+    }
+
+    .tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .tab-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .tab-btn.active {
+      color: #fff;
+      background: rgba(99, 102, 241, 0.2);
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 4px 20px var(--primary-glow);
+    }
+
+    .tab-pill {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.2);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .tab-pill.badge-pulse {
+      background: rgba(6, 182, 212, 0.2);
+      color: #67e8f9;
+      border-color: rgba(6, 182, 212, 0.4);
+    }
+
+    /* CONTAINER & LAYOUT */
+    .container {
+      max-width: 1440px;
+      margin: 24px auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 430px 1fr;
+      gap: 28px;
+    }
+
+    .container-full {
+      grid-template-columns: 1fr;
+    }
+
+    /* GLASS CARD */
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* FILE LIST (TAB PRODUCTION) */
+    .file-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 560px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .file-list::-webkit-scrollbar {
+      width: 5px;
+    }
+    .file-list::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+    }
+
+    .file-item {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .file-item:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(99, 102, 241, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .file-item.selected {
+      background: rgba(99, 102, 241, 0.12);
+      border-color: var(--primary);
+      box-shadow: 0 0 20px var(--primary-glow);
+    }
+
+    .file-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .file-name-block {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .file-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .file-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .meta-tags {
+      display: flex;
+      gap: 6px;
+    }
+
+    .tag-prod {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .tag-refined {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: rgba(6, 182, 212, 0.15);
+      color: #67e8f9;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      font-weight: 600;
+    }
+
+    .tag-pending {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: rgba(245, 158, 11, 0.15);
+      color: #fcd34d;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      font-weight: 600;
+    }
+
+    /* CONTROL CENTER */
+    .config-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(10, 15, 29, 0.9);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 16px;
+      border-radius: 14px;
+      border: none;
+      background: linear-gradient(135deg, var(--primary), var(--cyan));
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 6px 30px var(--primary-glow);
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .btn-danger {
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      background: rgba(239, 68, 68, 0.1);
+      color: #fca5a5;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-danger:hover {
+      background: rgba(239, 68, 68, 0.2);
+    }
+
+    /* PROGRESS SECTION */
+    .progress-section {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--card-border);
+      display: none;
+    }
+
+    .progress-section.active {
+      display: block;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 9999px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--cyan));
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+      box-shadow: 0 0 16px var(--cyan-glow);
+    }
+
+    /* STATS ROW */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* LIVE CORRECTIONS FEED */
+    .feed-container {
+      margin-top: 20px;
+    }
+
+    .feed-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .feed-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+
+    .diff-card {
+      background: rgba(10, 15, 29, 0.8);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 12px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 16px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .diff-raw {
+      color: #94a3b8;
+    }
+
+    .diff-arrow {
+      color: var(--cyan);
+      font-size: 16px;
+    }
+
+    .diff-after {
+      color: #a7f3d0;
+      font-weight: 600;
+    }
+
+    /* EXPORT READY BANNER */
+    .success-banner {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .success-banner.show {
+      display: block;
+    }
+
+    .export-paths {
+      font-family: monospace;
+      font-size: 11px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+      color: #6ee7b7;
+      word-break: break-all;
+    }
+
+    /* ==========================================================================
+       STAGING & PROMOTION VIEW STYLES
+       ========================================================================== */
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .kpi-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .kpi-title {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .kpi-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .btn-action-refresh {
+      padding: 10px 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-action-refresh:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-mini-refresh {
+      background: rgba(6, 182, 212, 0.12);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      color: var(--cyan);
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-mini-refresh:hover {
+      background: rgba(6, 182, 212, 0.28);
+      border-color: var(--cyan);
+      transform: scale(1.05);
+    }
+
+    .staging-table-container {
+      overflow-x: auto;
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      background: rgba(10, 15, 29, 0.5);
+    }
+
+    .staging-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    .staging-table th {
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .staging-table td {
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      vertical-align: middle;
+    }
+
+    .staging-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .source-cell {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .source-icon {
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--card-border);
+      flex-shrink: 0;
+    }
+
+    .source-name {
+      font-weight: 600;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .source-domain {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .run-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .run-rows {
+      font-weight: 600;
+      color: #f8fafc;
+      font-size: 14px;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .run-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .badge-status.emerald {
+      background: rgba(16, 185, 129, 0.12);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .badge-status.cyan {
+      background: rgba(6, 182, 212, 0.12);
+      color: #67e8f9;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }
+
+    .badge-status.amber {
+      background: rgba(245, 158, 11, 0.12);
+      color: #fcd34d;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .badge-status.rose {
+      background: rgba(239, 68, 68, 0.12);
+      color: #fca5a5;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .badge-status.gray {
+      background: rgba(148, 163, 184, 0.12);
+      color: #cbd5e1;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .diff-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+    }
+    .diff-plus { color: #38bdf8; }
+    .diff-minus { color: #f59e0b; }
+    .diff-warn { color: #f87171; }
+    .diff-zero { color: #64748b; }
+
+    .btn-promote {
+      padding: 9px 16px;
+      border-radius: 10px;
+      border: none;
+      background: linear-gradient(135deg, var(--primary), var(--cyan));
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.2px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 15px var(--primary-glow);
+    }
+
+    .btn-promote:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-promote-outline {
+      padding: 9px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.04);
+      color: #cbd5e1;
+      font-weight: 600;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-promote-outline:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+    }
+
+    .btn-promote-warn {
+      padding: 9px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      background: rgba(239, 68, 68, 0.1);
+      color: #fca5a5;
+      font-weight: 600;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-promote-warn:hover {
+      background: rgba(239, 68, 68, 0.2);
+    }
+
+    /* MODAL DE PROMOTION */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      width: 100%;
+      max-width: 540px;
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      transform: scale(0.95);
+      transition: transform 0.25s ease;
+    }
+
+    .modal-overlay.show .modal-card {
+      transform: scale(1);
+    }
+
+    .modal-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .modal-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .modal-compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .modal-compare-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .modal-compare-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .modal-compare-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .modal-compare-date {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .modal-warning-box {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .modal-warning-box.show {
+      display: block;
+    }
+
+    .modal-warning-text {
+      font-size: 12px;
+      color: #fca5a5;
+      line-height: 1.5;
+    }
+
+    .modal-checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn-modal-cancel {
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: transparent;
+      color: var(--text-muted);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-modal-cancel:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .btn-modal-confirm {
+      padding: 12px 24px;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(135deg, var(--primary), var(--cyan));
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 20px var(--primary-glow);
+      transition: all 0.2s;
+    }
+
+    .btn-modal-confirm:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 25px rgba(99, 102, 241, 0.4);
+    }
+
+    /* TOAST NOTIFICATIONS */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 14px 20px;
+      color: #fff;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      min-width: 320px;
+    }
+
+    .toast.success {
+      border-color: rgba(16, 185, 129, 0.5);
+      background: rgba(10, 25, 20, 0.95);
+    }
+
+    .toast.error {
+      border-color: rgba(239, 68, 68, 0.5);
+      background: rgba(30, 15, 20, 0.95);
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* ==========================================================================
+       UNIFIED CATALOG 360° STYLES
+       ========================================================================== */
+    .unified-container {
+      max-width: 1440px;
+      margin: 24px auto;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      width: 100%;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .kpi-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.8), transparent);
+    }
+
+    .kpi-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kpi-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    .kpi-icon {
+      font-size: 20px;
+      opacity: 0.85;
+    }
+
+    .kpi-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    .kpi-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* SUB NAV PILLS */
+    .unified-subnav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 14px;
+    }
+
+    .unified-nav-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .unified-pill-btn {
+      padding: 8px 18px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .unified-pill-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+    }
+
+    .unified-pill-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.5);
+      color: #38bdf8;
+    }
+
+    /* STATS GRIDS */
+    .stats-split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 1024px) {
+      .stats-split-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .stats-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .stats-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .stats-table-wrapper {
+      overflow-y: auto;
+      max-height: 400px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      text-align: left;
+    }
+
+    .stats-table th {
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text-muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 12px 14px;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .stats-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      color: #cbd5e1;
+      vertical-align: middle;
+    }
+
+    .stats-table tr:hover td {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      height: 6px;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      border-radius: 3px;
+    }
+
+    /* TOOLBAR & SEARCH */
+    .catalog-toolbar {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 18px 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .catalog-search-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 8px 16px;
+      min-width: 320px;
+      flex: 1;
+    }
+
+    .catalog-search-box input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-size: 13px;
+      width: 100%;
+    }
+
+    .catalog-filters {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .catalog-select {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--card-border);
+      color: #e2e8f0;
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-size: 12px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .catalog-select:focus {
+      border-color: #38bdf8;
+    }
+
+    .catalog-check-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-muted);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* CATALOG DATA TABLE */
+    .catalog-table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .catalog-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      text-align: left;
+    }
+
+    .catalog-table th {
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text-muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .catalog-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      vertical-align: middle;
+      color: #e2e8f0;
+    }
+
+    .catalog-table tr:hover td {
+      background: rgba(56, 189, 248, 0.03);
+    }
+
+    .brand-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .brand-badge.Apple { background: rgba(255, 255, 255, 0.1); color: #fff; }
+    .brand-badge.Samsung { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border-color: rgba(59, 130, 246, 0.3); }
+    .brand-badge.Xiaomi { background: rgba(249, 115, 22, 0.15); color: #fb923c; border-color: rgba(249, 115, 22, 0.3); }
+    .brand-badge.Google { background: rgba(16, 185, 129, 0.15); color: #34d399; border-color: rgba(16, 185, 129, 0.3); }
+
+    .price-pill {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      color: #38bdf8;
+      font-size: 13px;
+    }
+
+    .price-pill.empty {
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: normal;
+    }
+
+    .color-chip {
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+      display: inline-block;
+      margin: 1px 2px;
+    }
+
+    .btn-action-view {
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-action-view:hover {
+      background: rgba(56, 189, 248, 0.25);
+      border-color: #38bdf8;
+      transform: translateY(-1px);
+    }
+
+    /* PAGINATION */
+    .catalog-pagination {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 22px;
+      background: rgba(15, 23, 42, 0.8);
+      border-top: 1px solid var(--card-border);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .pagination-btn {
+      padding: 6px 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: #fff;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pagination-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .pagination-btn:not(:disabled):hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: #38bdf8;
+    }
+
+    /* MODAL DEVICE 360 */
+    .modal-device-card {
+      background: #0b1120;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 28px;
+      width: 950px;
+      max-width: 95vw;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modal-device-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 16px;
+    }
+
+    .modal-device-body {
+      overflow-y: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    .device-subnav {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 8px;
+    }
+
+    .device-subnav-btn {
+      padding: 6px 14px;
+      border-radius: 8px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .device-subnav-btn:hover {
+      color: #fff;
+    }
+
+    .device-subnav-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+    }
+
+    .device-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .device-spec-box {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .device-spec-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    .device-spec-val {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .json-code-box {
+      background: #030712;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 11px;
+      color: #94a3b8;
+      max-height: 400px;
+      overflow: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER PRINCIPAL -->
+  <header>
+    <div class="brand">
+      <div class="brand-icon">✨</div>
+      <div>
+        <div class="brand-title">E-COMMERCE AI V2 — AI Normalizer Studio & Production</div>
+        <div class="brand-subtitle">Console Unifiée de Gestion des Données, Staging & Normalisation Sémantique LLM</div>
+      </div>
+    </div>
+    <div class="system-badges">
+      <div class="badge badge-m4">
+        <span>⚡ Apple M4 • 16 Go RAM</span>
+      </div>
+      <div class="badge badge-ollama" id="ollamaBadge">
+        <div class="dot"></div>
+        <span id="ollamaStatusText">Ollama Connecté</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION PAR ONGLETS -->
+  <nav class="sub-nav">
+    <div class="tabs-segmented">
+      <button class="tab-btn active" id="tabBtnProduction" onclick="switchTab('production')">
+        <span>🛡️</span>
+        <span>Base de Production (./dataset/)</span>
+        <span class="tab-pill">Golden Master</span>
+      </button>
+      <button class="tab-btn" id="tabBtnStaging" onclick="switchTab('staging')">
+        <span>🔄</span>
+        <span>Staging & Promotion (outputs ➔ dataset)</span>
+        <span class="tab-pill badge-pulse" id="stagingAlertBadge">Console Staging</span>
+      </button>
+      <button class="tab-btn" id="tabBtnUnified" onclick="switchTab('unified')">
+        <span>🏛️</span>
+        <span>Base Unifiée 360° (unified_catalog.json)</span>
+        <span class="tab-pill" style="background: rgba(14, 165, 233, 0.15); border-color: rgba(14, 165, 233, 0.4); color: #38bdf8;">Option A Master</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- VUE 1 : BASE DE PRODUCTION (NORMALISATION IA) -->
+  <div class="container" id="viewProduction">
+
+    <!-- COLONNE GAUCHE : SÉLECTEUR DE FICHIERS DE PRODUCTION -->
+    <div class="glass-card">
+      <div class="card-header-bar">
+        <div>
+          <div class="card-title">🛡️ Données de Production Certifiées</div>
+          <div class="card-desc">Fichiers officiels de <strong>./dataset/</strong>. Seules les données validées en production sont soumises à la normalisation IA.</div>
+        </div>
+        <button class="btn-action-refresh" onclick="loadFiles(true)" title="Actualiser la liste des bases de données de production">
+          <span>🔄 Actualiser</span>
+        </button>
+      </div>
+      <div class="file-list" id="fileList">
+        <div style="text-align: center; color: var(--text-muted); padding: 40px 0;">Chargement de la production...</div>
+      </div>
+    </div>
+
+    <!-- COLONNE DROITE : CENTRE DE CONTRÔLE IA -->
+    <div class="glass-card">
+      <div class="card-title">⚙️ Paramètres & Lancement de l'Agent IA</div>
+      <div class="card-desc">Configuration du modèle local, débit de concurrence asynchrone et exécution sans blocage.</div>
+
+      <div class="config-grid">
+        <div class="form-group">
+          <label for="modelSelect">Modèle LLM Local (Ollama)</label>
+          <select id="modelSelect" class="form-control">
+            <option value="qwen3.5:9b" selected>Qwen 3.5 (9B) — Modèle Avancé (Recommandé par défaut)</option>
+            <option value="qwen2.5-coder:7b">Qwen 2.5 Coder (7B) — Rapide & Précis</option>
+            <option value="llama3.1:8b">Llama 3.1 (8B) — Modèle Standard</option>
+            <option value="qwen2.5-coder:14b">Qwen 2.5 Coder (14B) — Haute Précision</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="concurrencySelect">Workers Asynchrones Parallèles</label>
+          <select id="concurrencySelect" class="form-control">
+            <option value="2">2 Workers (Consommation Légère)</option>
+            <option value="3" selected>3 Workers (Recommandé M4 16 Go)</option>
+            <option value="4">4 Workers (Vitesse Maximale)</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 20px; background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.25); border-radius: 14px; padding: 14px 18px;">
+        <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none;">
+          <input type="checkbox" id="checkIncremental" checked style="width: 18px; height: 18px; accent-color: var(--cyan); cursor: pointer;">
+          <div>
+            <div style="font-weight: 700; color: #67e8f9; font-size: 13px; display: flex; align-items: center; gap: 8px;">
+              <span>⚡ Mode Incrémental (Delta IA)</span>
+              <span class="tab-pill badge-pulse" style="font-size: 9px; padding: 2px 6px;">Recommandé M4</span>
+            </div>
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+              Rejoue instantanément les lignes déjà certifiées depuis le cache. Seules les offres inédites seront envoyées au LLM.
+            </div>
+          </div>
+        </label>
+      </div>
+
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <button id="startBtn" class="btn-primary" onclick="startNormalization()" disabled>
+          <span>🚀 Démarrer la Normalisation IA sur la Base de Prod</span>
+        </button>
+        <button id="stopBtn" class="btn-danger" onclick="stopNormalization()" style="display: none;">
+          <span>Arrêter</span>
+        </button>
+      </div>
+
+      <!-- PROGRESSION EN DIRECT -->
+      <div class="progress-section" id="progressSection">
+        <div class="progress-header">
+          <span style="font-weight: 600; font-size: 14px;" id="progressStatusLabel">Traitement en cours...</span>
+          <span style="font-size: 13px; font-weight: 700; color: var(--cyan);" id="progressPercentLabel">0%</span>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="progressBarFill"></div>
+        </div>
+
+        <div class="stats-row" style="grid-template-columns: repeat(5, 1fr);">
+          <div class="stat-card">
+            <div class="stat-num" id="statProcessed">0 / 0</div>
+            <div class="stat-label">Lignes Traitées</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" style="color: #38bdf8;" id="statCached">0</div>
+            <div class="stat-label">⚡ Reprise Cache</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" style="color: #6ee7b7;" id="statModified">0</div>
+            <div class="stat-label">Corrigées / Forfaits</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" style="color: #fca5a5;" id="statFiltered">0</div>
+            <div class="stat-label">Accessoires Filtrés</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" style="color: #93c5fd;" id="statSpeed">0/s</div>
+            <div class="stat-label">Débit Delta LLM</div>
+          </div>
+        </div>
+
+        <!-- FLUX DES CORRECTIONS AVANT / APRÈS -->
+        <div class="feed-container">
+          <div class="feed-title">⚡ Échantillon des Corrections en Temps Réel (Avant ➔ Après)</div>
+          <div class="feed-list" id="diffFeed">
+            <div style="color: var(--text-muted); font-size: 12px;">En attente des premières lignes corrigées...</div>
+          </div>
+        </div>
+
+        <!-- BANNIÈRE SUCCÈS -->
+        <div class="success-banner" id="successBanner">
+          <div style="font-weight: 700; color: #10b981; font-size: 15px;">
+            ✅ Normalisation IA Terminée avec Succès !
+          </div>
+          <div style="font-size: 13px; color: #cbd5e1; margin-top: 4px;">
+            Les 5 fichiers standardisés d'artefacts E-commerce AI V2 ont été générés dans <strong>scraper/outputs_ai/</strong> :
+          </div>
+          <div class="export-paths" id="exportPathsText"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- VUE 2 : STAGING & PROMOTION (OUTPUTS ➔ DATASET) -->
+  <div class="container container-full" id="viewStaging" style="display: none;">
+    <div class="glass-card">
+      <div class="card-header-bar">
+        <div>
+          <div class="card-title">🔄 Console de Validation & Promotion Staging ➔ Production</div>
+          <div class="card-desc">Comparez les derniers runs de scraping déposés dans <strong>scraper/outputs/</strong> et <strong>liste_des_web/outputs/</strong> avec la base officielle <strong>./dataset/</strong> et promouvez-les en un clic.</div>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+          <button class="btn-action-refresh" id="btnRefreshSources" onclick="refreshSourcesAndDomains()" title="Mettre à jour et rescanner toutes les sources et domaines">
+            <span id="refreshSourcesIcon">🔄</span>
+            <span>Mettre à jour Source & Domaine</span>
+          </button>
+          <button class="btn-action-refresh" id="btnRefreshStaging" onclick="loadStagingComparison()" title="Réévaluer les écarts de volume Staging vs Production">
+            <span id="refreshIcon">🔃</span>
+            <span>Actualiser l'Audit</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- KPI SUMMARY -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-title">📦 Sources Totales</div>
+          <div class="kpi-value" id="kpiTotal">—</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">✅ À Jour / Conformes</div>
+          <div class="kpi-value" style="color: #6ee7b7;" id="kpiUpToDate">0</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">🔥 Nouveaux Runs Enrichis</div>
+          <div class="kpi-value" style="color: #38bdf8;" id="kpiEnriched">0</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">🔄 Runs Récents Frais</div>
+          <div class="kpi-value" style="color: #fbbf24;" id="kpiRecent">0</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">🛡️ Tests Partiels Protégés</div>
+          <div class="kpi-value" style="color: #f87171;" id="kpiPartial">0</div>
+        </div>
+      </div>
+
+      <!-- TABLEAU COMPARATIF STAGING -->
+      <div class="staging-table-container">
+        <table class="staging-table">
+          <thead>
+            <tr>
+              <th>
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                  <span>Source & Domaine</span>
+                  <button class="btn-mini-refresh" onclick="refreshSourcesAndDomains()" title="Mettre à jour la liste Source & Domaine">🔄</button>
+                </div>
+              </th>
+              <th>Dernier Run Staging (outputs/)</th>
+              <th>Base Production (dataset/)</th>
+              <th>Écart Volume</th>
+              <th>Statut de Conformité</th>
+              <th style="text-align: right;">Action Promotion</th>
+            </tr>
+          </thead>
+          <tbody id="stagingTableBody">
+            <tr>
+              <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 40px 0;">
+                Chargement du comparatif staging...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VUE 3 : BASE DE DONNÉES UNIFIÉE 360° (UNIFIED CATALOG) -->
+  <div class="unified-container" id="viewUnified" style="display: none;">
+
+    <!-- BARRE D'EN-TÊTE DU CATALOGUE -->
+    <div class="glass-card" style="padding: 22px 28px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="font-size: 24px;">🏛️</div>
+            <div>
+              <div class="card-title" style="font-size: 18px;">Catalogue Global Unifié 360° (unified_catalog_database.json)</div>
+              <div class="card-desc">Architecture Canonique <strong>Option A</strong> : Synthèse exhaustive Marché Ventes + Ateliers Réparations Marseille + Pièces Détachées B2B.</div>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <div class="badge-status cyan" id="unifiedStatusBadge">
+            <span class="dot" style="background: #38bdf8; box-shadow: 0 0 10px #38bdf8;"></span>
+            <span id="unifiedDbMeta">Chargement base...</span>
+          </div>
+          <button class="btn-action-view" onclick="rebuildUnifiedCatalog()" id="btnRebuildCatalog" style="padding: 8px 16px; font-size: 12px;">
+            <span>🔄</span>
+            <span>Reconstruire le Master</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- KPI CARDS GRID -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-title">Documents / SKUs</span>
+          <span class="kpi-icon">📱</span>
+        </div>
+        <div class="kpi-value" id="kpiTotalSkus">-</div>
+        <div class="kpi-sub">
+          <span id="kpiTotalModels">- modèles</span> • <span id="kpiTotalBrands">- marques</span>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-title">Offres Vente Marché</span>
+          <span class="kpi-icon">🏷️</span>
+        </div>
+        <div class="kpi-value" id="kpiTotalSales" style="color: #38bdf8;">-</div>
+        <div class="kpi-sub">
+          <span id="kpiSalesNew">- neufs</span> • <span id="kpiSalesRefurb">- reconditionnés</span>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-title">Tarifs Réparations Ateliers</span>
+          <span class="kpi-icon">🛠️</span>
+        </div>
+        <div class="kpi-value" id="kpiTotalRepairs" style="color: #34d399;">-</div>
+        <div class="kpi-sub">11 catégories canoniques couvertes</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-title">Pièces Détachées B2B</span>
+          <span class="kpi-icon">📦</span>
+        </div>
+        <div class="kpi-value" id="kpiTotalParts" style="color: #fb923c;">-</div>
+        <div class="kpi-sub">Utopya Grossiste (Prix HT)</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-title">Prestataires Référencés</span>
+          <span class="kpi-icon">🏬</span>
+        </div>
+        <div class="kpi-value" id="kpiTotalProviders" style="color: #a78bfa;">11</div>
+        <div class="kpi-sub">Ateliers, Marketplaces & Fabricants</div>
+      </div>
+    </div>
+
+    <!-- SOUS-NAVIGATION D'ONGLETS UNIFIÉS -->
+    <div class="unified-subnav-bar">
+      <div class="unified-nav-pills">
+        <button class="unified-pill-btn active" id="pillBtnStats" onclick="switchUnifiedView('stats')">
+          <span>📊</span>
+          <span>Statistiques Globales & Répartitions</span>
+        </button>
+        <button class="unified-pill-btn" id="pillBtnCatalog" onclick="switchUnifiedView('catalog')">
+          <span>🔍</span>
+          <span>Explorateur du Catalogue & Recherche</span>
+        </button>
+        <button class="unified-pill-btn" id="pillBtnRepairs" onclick="switchUnifiedView('repairs')">
+          <span>📑</span>
+          <span>Les 11 Pannes Canoniques</span>
+        </button>
+      </div>
+      <div style="font-size: 11px; color: var(--text-muted);" id="unifiedLastUpdatedText">
+        Synchronisation automatique
+      </div>
+    </div>
+
+    <!-- SOUS-VUE 1 : STATISTIQUES GLOBALES -->
+    <div id="unifiedViewStats" style="display: flex; flex-direction: column; gap: 20px;">
+      
+      <!-- DOUBLE COLONNE : MARQUES & PANNES -->
+      <div class="stats-split-grid">
+
+        <!-- CARTE : RÉPARTITION PAR MARQUE -->
+        <div class="stats-card">
+          <div class="stats-card-title">
+            <span>🏷️ Répertoire par Marque & Volumes</span>
+            <span class="badge" style="font-size: 11px;" id="statBrandCountBadge">- marques</span>
+          </div>
+          <div class="stats-table-wrapper">
+            <table class="stats-table">
+              <thead>
+                <tr>
+                  <th>Marque</th>
+                  <th style="text-align: right;">SKUs</th>
+                  <th style="text-align: right;">Modèles</th>
+                  <th style="text-align: right;">Réparations</th>
+                  <th style="text-align: right;">Ventes</th>
+                  <th style="text-align: center;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="brandStatsTableBody">
+                <tr><td colspan="6" style="text-align: center; padding: 20px; color: var(--text-muted);">Chargement...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- CARTE : 11 CATÉGORIES DE RÉPARATION -->
+        <div class="stats-card">
+          <div class="stats-card-title">
+            <span>🛠️ Les 11 Pannes Canoniques & Prix</span>
+            <span class="badge" style="font-size: 11px;">Marseille & France</span>
+          </div>
+          <div class="stats-table-wrapper">
+            <table class="stats-table">
+              <thead>
+                <tr>
+                  <th>Catégorie de Réparation</th>
+                  <th style="text-align: right;">Devis Ateliers</th>
+                  <th style="text-align: right;">Modèles</th>
+                  <th style="text-align: right;">Prix Moyen</th>
+                  <th style="text-align: right;">Min / Max</th>
+                </tr>
+              </thead>
+              <tbody id="repairCatStatsTableBody">
+                <tr><td colspan="5" style="text-align: center; padding: 20px; color: var(--text-muted);">Chargement...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- DEUXIÈME GRID : TOP MODÈLES & PRESTATAIRES -->
+      <div class="stats-split-grid">
+
+        <!-- TOP MODÈLES RÉPARÉS -->
+        <div class="stats-card">
+          <div class="stats-card-title">
+            <span>🔥 Top Smartphones les plus Réparés</span>
+            <span class="badge" style="font-size: 11px;">Volume de Devis</span>
+          </div>
+          <div id="topRepairedList" style="display: flex; flex-direction: column; gap: 10px; max-height: 360px; overflow-y: auto;">
+            <div style="color: var(--text-muted); text-align: center; padding: 20px;">Chargement du classement...</div>
+          </div>
+        </div>
+
+        <!-- CARTOGRAPHIE DES FOURNISSEURS -->
+        <div class="stats-card">
+          <div class="stats-card-title">
+            <span>🏬 Répartition des 11 Sources Connectées</span>
+            <span class="badge" style="font-size: 11px;">Scrapers E-commerce AI V2</span>
+          </div>
+          <div id="providersDistributionList" style="display: flex; flex-direction: column; gap: 10px; max-height: 360px; overflow-y: auto;">
+            <div style="color: var(--text-muted); text-align: center; padding: 20px;">Chargement des prestataires...</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SOUS-VUE 2 : EXPLORATEUR DE DOCUMENTS & RECHERCHE -->
+    <div id="unifiedViewCatalog" style="display: none; flex-direction: column; gap: 18px;">
+      
+      <!-- BARRE D'OUTILS DE RECHERCHE -->
+      <div class="catalog-toolbar">
+        <div class="catalog-search-box">
+          <span>🔍</span>
+          <input type="text" id="catalogSearchInput" placeholder="Rechercher par modèle, marque, stockage (ex: iPhone 15, Galaxy S24, 128Go)..." oninput="debounceSearch()">
+        </div>
+
+        <div class="catalog-filters">
+          <select class="catalog-select" id="catalogFilterBrand" onchange="searchUnifiedCatalog(1)">
+            <option value="all">Toutes les marques</option>
+          </select>
+
+          <select class="catalog-select" id="catalogFilterStorage" onchange="searchUnifiedCatalog(1)">
+            <option value="all">Tout stockage</option>
+            <option value="64">64 Go</option>
+            <option value="128">128 Go</option>
+            <option value="256">256 Go</option>
+            <option value="512">512 Go</option>
+            <option value="1024">1 To</option>
+          </select>
+
+          <label class="catalog-check-label">
+            <input type="checkbox" id="checkFilterSales" onchange="searchUnifiedCatalog(1)">
+            <span>Avec vente</span>
+          </label>
+
+          <label class="catalog-check-label">
+            <input type="checkbox" id="checkFilterRepairs" onchange="searchUnifiedCatalog(1)">
+            <span>Avec réparation</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- TABLEAU DES APPAREILS -->
+      <div class="catalog-table-container">
+        <table class="catalog-table">
+          <thead>
+            <tr>
+              <th>SKU / Device ID</th>
+              <th>Marque & Modèle</th>
+              <th>Capacité</th>
+              <th>Couleurs Répertoriées</th>
+              <th>Vente Min (Neuf / Recond)</th>
+              <th>Réparations Min (Écran / Batt)</th>
+              <th style="text-align: right;">Total Offres</th>
+              <th style="text-align: center;">Action 360°</th>
+            </tr>
+          </thead>
+          <tbody id="catalogTableBody">
+            <tr><td colspan="8" style="text-align: center; padding: 40px; color: var(--text-muted);">Chargement du catalogue...</td></tr>
+          </tbody>
+        </table>
+
+        <!-- BARRE DE PAGINATION -->
+        <div class="catalog-pagination">
+          <div id="catalogPaginationInfo">Affichage de 0 sur 0 résultat</div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <button class="pagination-btn" id="btnPagePrev" onclick="changeCatalogPage(-1)" disabled>◀ Précédent</button>
+            <span id="catalogPageIndicator" style="font-weight: 600; color: #fff; padding: 0 8px;">Page 1</span>
+            <button class="pagination-btn" id="btnPageNext" onclick="changeCatalogPage(1)" disabled>Suivant ▶</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SOUS-VUE 3 : PANORAMA DES 11 PANNES CANONIQUES -->
+    <div id="unifiedViewRepairs" style="display: none; flex-direction: column; gap: 18px;">
+      <div class="glass-card" style="padding: 24px;">
+        <div class="card-title" style="margin-bottom: 8px;">📑 Cartographie des 11 Catégories Canoniques de Réparation (Option A)</div>
+        <div class="card-desc" style="margin-bottom: 20px;">
+          Chaque prestation issue des ateliers (WeFix, Pixou Phone, Save, Phone & CBD, Targets) est automatiquement normalisée vers l'une de ces 11 catégories avec indicateur de couleur sur la vitre arrière.
+        </div>
+
+        <div class="staging-table-container">
+          <table class="staging-table">
+            <thead>
+              <tr>
+                <th>Code Catégorie</th>
+                <th>Libellé Officiel E-commerce AI Scraping</th>
+                <th>Variante Couleur Requise</th>
+                <th>Nombre de Devis</th>
+                <th>Couverture Modèles</th>
+                <th>Prix Min</th>
+                <th>Prix Moyen Constaté</th>
+                <th>Prix Max</th>
+              </tr>
+            </thead>
+            <tbody id="detailedRepairsTableBody">
+              <tr><td colspan="8" style="text-align: center; padding: 30px; color: var(--text-muted);">Chargement des catégories...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MODAL DE VISUALISATION FICHE 360° -->
+  <div class="modal-overlay" id="deviceModal">
+    <div class="modal-device-card">
+      
+      <!-- HEADER DU SMARTPHONE -->
+      <div class="modal-device-header">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+            <span class="brand-badge" id="modalDevBrandBadge">Marque</span>
+            <span style="font-size: 20px; font-weight: 700; color: #fff;" id="modalDevTitle">Smartphone Modèle</span>
+            <span class="badge" style="font-size: 11px;" id="modalDevStorageBadge">128 Go</span>
+          </div>
+          <div style="font-size: 11px; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);" id="modalDevId">device_id</div>
+        </div>
+        <button onclick="closeDeviceModal()" style="background: none; border: none; font-size: 20px; color: var(--text-muted); cursor: pointer;">✕</button>
+      </div>
+
+      <!-- SPECS RAPIDES -->
+      <div class="device-specs-grid">
+        <div class="device-spec-box">
+          <span class="device-spec-label">Type d'appareil</span>
+          <span class="device-spec-val" id="modalDevType">Smartphone</span>
+        </div>
+        <div class="device-spec-box">
+          <span class="device-spec-label">Stockage</span>
+          <span class="device-spec-val" id="modalDevStorage">-</span>
+        </div>
+        <div class="device-spec-box">
+          <span class="device-spec-label">Couleurs Disponibles</span>
+          <span class="device-spec-val" id="modalDevColorsCount">0 couleurs</span>
+        </div>
+        <div class="device-spec-box">
+          <span class="device-spec-label">Offres Vente</span>
+          <span class="device-spec-val" id="modalDevSalesCount" style="color: #38bdf8;">0 offres</span>
+        </div>
+        <div class="device-spec-box">
+          <span class="device-spec-label">Devis Ateliers</span>
+          <span class="device-spec-val" id="modalDevRepairsCount" style="color: #34d399;">0 tarifs</span>
+        </div>
+      </div>
+
+      <!-- SOUS-NAVIGATION MODALE -->
+      <div class="device-subnav">
+        <button class="device-subnav-btn active" id="devTabBtnSales" onclick="switchDeviceTab('sales')">🏷️ Ventes Marché (<span id="modalTabSalesCount">0</span>)</button>
+        <button class="device-subnav-btn" id="devTabBtnRepairs" onclick="switchDeviceTab('repairs')">🛠️ Réparations Ateliers (<span id="modalTabRepairsCount">0</span>)</button>
+        <button class="device-subnav-btn" id="devTabBtnParts" onclick="switchDeviceTab('parts')">📦 Pièces B2B Utopya (<span id="modalTabPartsCount">0</span>)</button>
+        <button class="device-subnav-btn" id="devTabBtnJson" onclick="switchDeviceTab('json')">💻 Document JSON Brut</button>
+      </div>
+
+      <!-- CORPS DE LA MODALE -->
+      <div class="modal-device-body">
+
+        <!-- ONGLET VENTES -->
+        <div id="devPaneSales" style="display: flex; flex-direction: column; gap: 14px;">
+          <div id="modalSalesContent">Chargement des offres...</div>
+        </div>
+
+        <!-- ONGLET RÉPARATIONS -->
+        <div id="devPaneRepairs" style="display: none; flex-direction: column; gap: 14px;">
+          <div id="modalRepairsContent">Chargement des tarifs ateliers...</div>
+        </div>
+
+        <!-- ONGLET PIÈCES B2B -->
+        <div id="devPaneParts" style="display: none; flex-direction: column; gap: 14px;">
+          <div id="modalPartsContent">Chargement des pièces détachées...</div>
+        </div>
+
+        <!-- ONGLET JSON BRUT -->
+        <div id="devPaneJson" style="display: none; flex-direction: column; gap: 10px;">
+          <div style="display: flex; justify-content: flex-end;">
+            <button class="btn-action-view" onclick="copyDeviceJson()">📋 Copier le JSON</button>
+          </div>
+          <pre class="json-code-box" id="modalJsonBox"></pre>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL DE CONFIRMATION DE PROMOTION -->
+  <div class="modal-overlay" id="promoteModal">
+    <div class="modal-card">
+      <div class="modal-title">
+        <span id="modalSourceIcon">🚀</span>
+        <span>Promotion vers Production : <span id="modalSourceName">Source</span></span>
+      </div>
+      <div class="modal-subtitle">
+        Cette opération va mettre à jour le catalogue officiel <strong>./dataset/</strong> et synchroniser automatiquement tous les liens symboliques <strong>db_scraperV*</strong>.
+      </div>
+
+      <div class="modal-compare-grid">
+        <div class="modal-compare-box">
+          <div class="modal-compare-label">Production Actuelle (dataset/)</div>
+          <div class="modal-compare-value" id="modalDsRows">0 lignes</div>
+          <div class="modal-compare-date" id="modalDsDate">Date : -</div>
+        </div>
+        <div class="modal-compare-box">
+          <div class="modal-compare-label">Nouveau Run (outputs/)</div>
+          <div class="modal-compare-value" id="modalOutRows" style="color: #38bdf8;">0 lignes</div>
+          <div class="modal-compare-date" id="modalOutDate">Date : -</div>
+        </div>
+      </div>
+
+      <div class="modal-warning-box" id="modalWarningBox">
+        <div class="modal-warning-text" id="modalWarningText">
+          ⚠️ <strong>Avertissement de Sécurité :</strong> Le fichier de staging contient un nombre de lignes très inférieur à la production existante.
+        </div>
+        <div class="modal-checkbox-row">
+          <input type="checkbox" id="checkForcePromote">
+          <label for="checkForcePromote" style="font-size: 12px; font-weight: 600; color: #fca5a5; cursor: pointer;">
+            Je confirme vouloir forcer le remplacement de la base de production.
+          </label>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-modal-cancel" onclick="closePromoteModal()">Annuler</button>
+        <button class="btn-modal-confirm" id="btnConfirmPromote" onclick="executePromotion()">
+          <span>🚀 Confirmer la Promotion</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script>
+    let selectedFilePath = null;
+    let pollInterval = null;
+    let currentPromoteTarget = null;
+
+    // GESTION DES ONGLETS
+    function switchTab(tab) {
+      const tabProdBtn = document.getElementById('tabBtnProduction');
+      const tabStagingBtn = document.getElementById('tabBtnStaging');
+      const tabUnifiedBtn = document.getElementById('tabBtnUnified');
+      const viewProd = document.getElementById('viewProduction');
+      const viewStaging = document.getElementById('viewStaging');
+      const viewUnified = document.getElementById('viewUnified');
+
+      tabProdBtn.classList.toggle('active', tab === 'production');
+      tabStagingBtn.classList.toggle('active', tab === 'staging');
+      tabUnifiedBtn.classList.toggle('active', tab === 'unified');
+
+      viewProd.style.display = tab === 'production' ? 'grid' : 'none';
+      viewStaging.style.display = tab === 'staging' ? 'grid' : 'none';
+      viewUnified.style.display = tab === 'unified' ? 'flex' : 'none';
+
+      if (tab === 'production') loadFiles();
+      if (tab === 'staging') loadStagingComparison();
+      if (tab === 'unified') loadUnifiedCatalog();
+    }
+
+    // =========================================================================
+    // CATALOGUE UNIFIÉ 360° (ONGLET 3)
+    // =========================================================================
+    let currentCatalogPage = 1;
+    let catalogTotalPages = 1;
+    let searchDebounceTimer = null;
+    let currentDeviceData = null;
+    let unifiedStatsCached = null;
+
+    function switchUnifiedView(view) {
+      document.getElementById('pillBtnStats').classList.toggle('active', view === 'stats');
+      document.getElementById('pillBtnCatalog').classList.toggle('active', view === 'catalog');
+      document.getElementById('pillBtnRepairs').classList.toggle('active', view === 'repairs');
+
+      document.getElementById('unifiedViewStats').style.display = view === 'stats' ? 'flex' : 'none';
+      document.getElementById('unifiedViewCatalog').style.display = view === 'catalog' ? 'flex' : 'none';
+      document.getElementById('unifiedViewRepairs').style.display = view === 'repairs' ? 'flex' : 'none';
+
+      if (view === 'catalog') {
+        searchUnifiedCatalog(currentCatalogPage);
+      }
+    }
+
+    async function loadUnifiedCatalog() {
+      await loadUnifiedStats();
+      searchUnifiedCatalog(1);
+    }
+
+    async function loadUnifiedStats() {
+      try {
+        const res = await fetch('/api/unified/stats');
+        const data = await res.json();
+        if (data.error) {
+          showToast(data.error, 'error');
+          return;
+        }
+
+        unifiedStatsCached = data;
+
+        // KPIs
+        document.getElementById('kpiTotalSkus').innerText = Number(data.total_skus).toLocaleString();
+        document.getElementById('kpiTotalModels').innerText = `${Number(data.total_models || 0).toLocaleString()} modèles`;
+        document.getElementById('kpiTotalBrands').innerText = `${Number(data.total_brands || 0).toLocaleString()} marques`;
+        document.getElementById('kpiTotalSales').innerText = Number(data.total_sales_offers).toLocaleString();
+        document.getElementById('kpiSalesNew').innerText = `${Number(data.sales_by_condition?.new || 0).toLocaleString()} neufs`;
+        document.getElementById('kpiSalesRefurb').innerText = `${Number(data.sales_by_condition?.refurbished || 0).toLocaleString()} reconditionnés`;
+        document.getElementById('kpiTotalRepairs').innerText = Number(data.total_repairs).toLocaleString();
+        document.getElementById('kpiTotalParts').innerText = Number(data.total_b2b_parts).toLocaleString();
+        document.getElementById('statBrandCountBadge').innerText = `${data.total_brands} marques`;
+
+        if (data.db_file_size_mb) {
+          document.getElementById('unifiedDbMeta').innerText = `Base prête (${data.db_file_size_mb} Mo • ${Number(data.total_skus).toLocaleString()} SKUs)`;
+        }
+        if (data.last_modified) {
+          const d = new Date(data.last_modified);
+          document.getElementById('unifiedLastUpdatedText').innerText = `Dernière consolidation : ${d.toLocaleDateString()} à ${d.toLocaleTimeString()}`;
+        }
+
+        // 1. Table des Marques
+        const brandTbody = document.getElementById('brandStatsTableBody');
+        const brandSelect = document.getElementById('catalogFilterBrand');
+        brandTbody.innerHTML = '';
+        brandSelect.innerHTML = '<option value="all">Toutes les marques</option>';
+
+        (data.brands_summary || []).forEach(b => {
+          // Select option
+          const opt = document.createElement('option');
+          opt.value = b.brand;
+          opt.innerText = `${b.brand} (${b.skus_count})`;
+          brandSelect.appendChild(opt);
+
+          // Table row
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>
+              <span class="brand-badge ${b.brand}">${b.brand}</span>
+            </td>
+            <td style="text-align: right; font-weight: 600; color: #fff;">${b.skus_count.toLocaleString()}</td>
+            <td style="text-align: right; color: var(--text-muted);">${b.models_count.toLocaleString()}</td>
+            <td style="text-align: right; font-weight: 600; color: #34d399;">${b.repairs_count.toLocaleString()}</td>
+            <td style="text-align: right; font-weight: 600; color: #38bdf8;">${b.sales_count.toLocaleString()}</td>
+            <td style="text-align: center;">
+              <button class="btn-action-view" onclick="filterByBrand('${b.brand}')">Filtrer ➔</button>
+            </td>
+          `;
+          brandTbody.appendChild(tr);
+        });
+
+        // 2. Table des 11 Catégories de Réparation
+        const repTbody = document.getElementById('repairCatStatsTableBody');
+        const detailedTbody = document.getElementById('detailedRepairsTableBody');
+        repTbody.innerHTML = '';
+        detailedTbody.innerHTML = '';
+
+        (data.repair_categories || []).forEach(c => {
+          const avgTxt = c.avg_price ? `${c.avg_price} €` : '-';
+          const rangeTxt = (c.min_price && c.max_price) ? `${c.min_price}€ - ${c.max_price}€` : '-';
+
+          // Table synthétique
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>
+              <span style="margin-right: 6px;">${c.icon}</span>
+              <strong style="color: #fff;">${c.label}</strong>
+            </td>
+            <td style="text-align: right; font-weight: 600; color: #34d399;">${c.total_offers.toLocaleString()}</td>
+            <td style="text-align: right; color: var(--text-muted);">${c.models_covered.toLocaleString()}</td>
+            <td style="text-align: right; font-weight: 700; color: #fff;">${avgTxt}</td>
+            <td style="text-align: right; font-size: 11px; color: var(--text-muted);">${rangeTxt}</td>
+          `;
+          repTbody.appendChild(tr);
+
+          // Table détaillée
+          const dTr = document.createElement('tr');
+          dTr.innerHTML = `
+            <td><code style="color: #38bdf8; background: rgba(56,189,248,0.1); padding: 2px 6px; border-radius: 4px;">${c.id}</code></td>
+            <td><strong>${c.icon} ${c.label}</strong></td>
+            <td>${c.id === 'vitre_arriere' ? '<span class="badge-status amber">Couleur Requise</span>' : '<span style="color: var(--text-muted);">Standard</span>'}</td>
+            <td style="font-weight: 600; color: #34d399;">${c.total_offers.toLocaleString()} devis</td>
+            <td>${c.models_covered.toLocaleString()} modèles</td>
+            <td style="color: #67e8f9; font-weight: 600;">${c.min_price ? c.min_price + ' €' : '-'}</td>
+            <td style="color: #fff; font-weight: 700;">${avgTxt}</td>
+            <td style="color: #fca5a5;">${c.max_price ? c.max_price + ' €' : '-'}</td>
+          `;
+          detailedTbody.appendChild(dTr);
+        });
+
+        // 3. Top Modèles Réparés
+        const topRepList = document.getElementById('topRepairedList');
+        topRepList.innerHTML = '';
+        const maxRepCount = (data.top_repaired_models && data.top_repaired_models[0]) ? data.top_repaired_models[0].count : 1;
+        (data.top_repaired_models || []).forEach((m, idx) => {
+          const pct = Math.round((m.count / maxRepCount) * 100);
+          const item = document.createElement('div');
+          item.innerHTML = `
+            <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 2px;">
+              <span style="color: #f8fafc; font-weight: 500;"><strong>#${idx + 1}</strong> ${m.model}</span>
+              <span style="color: #34d399; font-weight: 700;">${m.count.toLocaleString()} devis</span>
+            </div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" style="width: ${pct}%; background: linear-gradient(90deg, #10b981, #06b6d4);"></div>
+            </div>
+          `;
+          topRepList.appendChild(item);
+        });
+
+        // 4. Répartition des Fournisseurs / Ateliers
+        const provList = document.getElementById('providersDistributionList');
+        provList.innerHTML = '';
+        const provEntries = Object.entries(data.providers_counts || {});
+        const maxProv = provEntries.length ? Math.max(...provEntries.map(e => e[1])) : 1;
+        provEntries.forEach(([name, count]) => {
+          const pct = Math.round((count / maxProv) * 100);
+          const item = document.createElement('div');
+          item.innerHTML = `
+            <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 2px;">
+              <span style="color: #f8fafc;">${name}</span>
+              <span style="color: #a78bfa; font-weight: 700;">${count.toLocaleString()} offres</span>
+            </div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" style="width: ${pct}%; background: linear-gradient(90deg, #8b5cf6, #3b82f6);"></div>
+            </div>
+          `;
+          provList.appendChild(item);
+        });
+
+      } catch (err) {
+        console.error("Erreur stats unified:", err);
+        showToast("Impossible de charger les statistiques du catalogue.", "error");
+      }
+    }
+
+    function filterByBrand(brand) {
+      document.getElementById('catalogFilterBrand').value = brand;
+      switchUnifiedView('catalog');
+      searchUnifiedCatalog(1);
+    }
+
+    function debounceSearch() {
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(() => {
+        searchUnifiedCatalog(1);
+      }, 300);
+    }
+
+    async function searchUnifiedCatalog(page = 1) {
+      currentCatalogPage = page;
+      const q = document.getElementById('catalogSearchInput').value.trim();
+      const brand = document.getElementById('catalogFilterBrand').value;
+      const storage = document.getElementById('catalogFilterStorage').value;
+      const hasSales = document.getElementById('checkFilterSales').checked;
+      const hasRepairs = document.getElementById('checkFilterRepairs').checked;
+
+      const params = new URLSearchParams({
+        q: q,
+        brand: brand,
+        storage: storage,
+        has_sales: hasSales ? 'true' : 'false',
+        has_repairs: hasRepairs ? 'true' : 'false',
+        page: page,
+        limit: 25,
+      });
+
+      const tbody = document.getElementById('catalogTableBody');
+      tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 30px; color: var(--text-muted);">Recherche en cours...</td></tr>';
+
+      try {
+        const res = await fetch(`/api/unified/search?${params.toString()}`);
+        const data = await res.json();
+
+        tbody.innerHTML = '';
+        if (!data.items || data.items.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 40px; color: var(--text-muted);">Aucun appareil ne correspond à ces critères.</td></tr>';
+          document.getElementById('catalogPaginationInfo').innerText = '0 résultat';
+          document.getElementById('btnPagePrev').disabled = true;
+          document.getElementById('btnPageNext').disabled = true;
+          return;
+        }
+
+        catalogTotalPages = data.total_pages;
+        document.getElementById('catalogPaginationInfo').innerText = 
+          `Affichage de ${((data.page - 1) * data.limit) + 1} à ${Math.min(data.page * data.limit, data.total)} sur ${data.total.toLocaleString()} appareils`;
+        document.getElementById('catalogPageIndicator').innerText = `Page ${data.page} / ${data.total_pages}`;
+        document.getElementById('btnPagePrev').disabled = (data.page <= 1);
+        document.getElementById('btnPageNext').disabled = (data.page >= data.total_pages);
+
+        data.items.forEach(it => {
+          const tr = document.createElement('tr');
+
+          // Couleurs preview
+          let colorsHtml = '<span style="color: var(--text-muted);">-</span>';
+          if (it.colors_preview && it.colors_preview.length > 0) {
+            colorsHtml = it.colors_preview.map(c => `<span class="color-chip">${c}</span>`).join('');
+            if (it.colors_count > it.colors_preview.length) {
+              colorsHtml += `<span class="color-chip">+${it.colors_count - it.colors_preview.length}</span>`;
+            }
+          }
+
+          // Ventes prix
+          let salesPriceHtml = '<span class="price-pill empty">-</span>';
+          if (it.min_new_price || it.min_refurb_price || it.min_used_price) {
+            const newTxt = it.min_new_price ? `${it.min_new_price}€ <small style="color:var(--text-muted)">neuf</small>` : '';
+            const refTxt = it.min_refurb_price ? `${it.min_refurb_price}€ <small style="color:var(--text-muted)">recond.</small>` : '';
+            const usedTxt = (!it.min_new_price && !it.min_refurb_price && it.min_used_price) ? `${it.min_used_price}€ <small style="color:var(--text-muted)">occ.</small>` : '';
+            salesPriceHtml = `<div style="font-size: 11px;">${newTxt} ${refTxt} ${usedTxt}</div>`;
+          }
+
+          // Réparations prix
+          let repPriceHtml = '<span class="price-pill empty">-</span>';
+          if (it.min_screen_price || it.min_battery_price) {
+            const scTxt = it.min_screen_price ? `📱 ${it.min_screen_price}€` : '';
+            const batTxt = it.min_battery_price ? `🔋 ${it.min_battery_price}€` : '';
+            repPriceHtml = `<div style="font-size: 11px; color: #34d399;">${scTxt} ${batTxt}</div>`;
+          } else if (it.best_repair_price) {
+            repPriceHtml = `<div style="font-size: 11px; color: #34d399;">${it.best_repair_icon || '🛠️'} dès ${it.best_repair_price}€</div>`;
+          } else if (it.min_b2b_part_price) {
+            repPriceHtml = `<div style="font-size: 11px; color: #fb923c;">📦 Dès ${it.min_b2b_part_price}€ HT <small style="color:var(--text-muted)">(B2B)</small></div>`;
+          }
+
+          // Disponibilité
+          let dispoHtml = '';
+          if (it.total_sales > 0 || it.total_repairs > 0) {
+            dispoHtml = `<span style="color: #38bdf8;">${it.total_sales} ventes</span> • <span style="color: #34d399;">${it.total_repairs} devis</span>`;
+          } else if (it.total_b2b_parts > 0) {
+            dispoHtml = `<span style="color: #fb923c; font-weight: 500;">📦 ${it.total_b2b_parts} pièces B2B</span>`;
+          } else {
+            dispoHtml = `<span style="color: var(--text-muted);">Référence catalogue</span>`;
+          }
+
+          tr.innerHTML = `
+            <td>
+              <code style="font-size: 11px; color: #a5b4fc;">${it.device_id}</code>
+            </td>
+            <td>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="brand-badge ${it.brand}">${it.brand}</span>
+                <strong style="color: #fff;">${it.model}</strong>
+              </div>
+            </td>
+            <td>
+              <span class="badge" style="font-size: 11px;">${it.storage ? it.storage + ' Go' : 'Standard'}</span>
+            </td>
+            <td>${colorsHtml}</td>
+            <td>${salesPriceHtml}</td>
+            <td>${repPriceHtml}</td>
+            <td style="text-align: right; font-weight: 600;">
+              ${dispoHtml}
+            </td>
+            <td style="text-align: center;">
+              <button class="btn-action-view" onclick="openDeviceModal('${it.device_id}')">
+                <span>👁️ Fiche 360°</span>
+              </button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+      } catch (err) {
+        console.error("Erreur search:", err);
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 30px; color: #f87171;">Erreur lors de la recherche dans le catalogue.</td></tr>';
+      }
+    }
+
+    function changeCatalogPage(delta) {
+      const targetPage = currentCatalogPage + delta;
+      if (targetPage >= 1 && targetPage <= catalogTotalPages) {
+        searchUnifiedCatalog(targetPage);
+      }
+    }
+
+    // INSPECTEUR MODAL FICHE 360°
+    async function openDeviceModal(deviceId) {
+      const modal = document.getElementById('deviceModal');
+      modal.classList.add('show');
+
+      document.getElementById('modalDevId').innerText = deviceId;
+      document.getElementById('modalDevTitle').innerText = 'Chargement...';
+      document.getElementById('modalDevBrandBadge').innerText = '-';
+      document.getElementById('modalDevStorageBadge').innerText = '-';
+      document.getElementById('modalDevType').innerText = '-';
+      document.getElementById('modalDevStorage').innerText = '-';
+      document.getElementById('modalDevColorsCount').innerText = '-';
+      document.getElementById('modalDevSalesCount').innerText = '-';
+      document.getElementById('modalDevRepairsCount').innerText = '-';
+
+      document.getElementById('modalSalesContent').innerHTML = '<div style="color: var(--text-muted); padding: 20px;">Chargement des offres...</div>';
+      document.getElementById('modalRepairsContent').innerHTML = '<div style="color: var(--text-muted); padding: 20px;">Chargement des devis...</div>';
+      document.getElementById('modalPartsContent').innerHTML = '<div style="color: var(--text-muted); padding: 20px;">Chargement des pièces...</div>';
+      document.getElementById('modalJsonBox').innerText = '// Chargement...';
+
+      try {
+        const res = await fetch(`/api/unified/device?device_id=${encodeURIComponent(deviceId)}`);
+        const dev = await res.json();
+        if (dev.error) {
+          showToast(dev.error, 'error');
+          closeDeviceModal();
+          return;
+        }
+
+        currentDeviceData = dev;
+
+        // Remplir header
+        document.getElementById('modalDevTitle').innerText = `${dev.brand} ${dev.model}`;
+        document.getElementById('modalDevBrandBadge').innerText = dev.brand;
+        document.getElementById('modalDevBrandBadge').className = `brand-badge ${dev.brand}`;
+        document.getElementById('modalDevStorageBadge').innerText = dev.storage ? `${dev.storage} Go` : 'Standard';
+        document.getElementById('modalDevType').innerText = dev.device_type || 'Smartphone';
+        document.getElementById('modalDevStorage').innerText = dev.storage ? `${dev.storage} Go` : 'Non spécifié';
+        document.getElementById('modalDevColorsCount').innerText = `${(dev.available_colors || []).length} teintes`;
+
+        // Calculs sous-totaux
+        let totalSales = 0;
+        const allOffers = [];
+        ['new', 'refurbished', 'used'].forEach(cond => {
+          const offs = dev.market_sales?.[cond]?.all_offers || [];
+          totalSales += offs.length;
+          offs.forEach(o => allOffers.push({ ...o, condition_key: cond }));
+        });
+        document.getElementById('modalDevSalesCount').innerText = `${totalSales} offres`;
+        document.getElementById('modalTabSalesCount').innerText = totalSales;
+
+        let totalRepairs = 0;
+        let totalParts = 0;
+        Object.values(dev.repairs || {}).forEach(c => {
+          totalRepairs += (c.all_providers || []).length;
+          totalParts += (c.b2b_parts || []).length;
+        });
+        document.getElementById('modalDevRepairsCount').innerText = `${totalRepairs} tarifs`;
+        document.getElementById('modalTabRepairsCount').innerText = totalRepairs;
+        document.getElementById('modalTabPartsCount').innerText = totalParts;
+
+        // ONGLET 1 : VENTES
+        const salesBox = document.getElementById('modalSalesContent');
+        if (allOffers.length === 0) {
+          salesBox.innerHTML = '<div style="color: var(--text-muted); padding: 30px; text-align: center;">Aucune offre de vente répertoriée pour ce modèle.</div>';
+        } else {
+          salesBox.innerHTML = allOffers.map(o => `
+            <div style="background: rgba(15,23,42,0.6); border: 1px solid var(--card-border); border-radius: 12px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                  <span class="badge-status ${o.condition_key === 'new' ? 'emerald' : 'cyan'}" style="font-size: 10px;">${o.condition_key.toUpperCase()}</span>
+                  ${o.grade ? `<span class="badge" style="font-size: 10px;">Grade: ${o.grade}</span>` : ''}
+                  <strong style="color: #fff;">${o.seller_name}</strong>
+                  <span style="font-size: 11px; color: var(--text-muted); font-family: monospace;">(${o.source_site})</span>
+                </div>
+                <div style="font-size: 11px; color: var(--text-muted);">
+                  Couleur : ${o.color || 'Standard'} • ${o.shipping} • ${o.warranty}
+                </div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-size: 20px; font-weight: 700; color: #38bdf8; font-family: Outfit, sans-serif;">${o.price ? o.price + ' €' : 'N/C'}</div>
+                ${o.url ? `<a href="${o.url}" target="_blank" style="font-size: 11px; color: #94a3b8; text-decoration: underline;">Voir l'annonce ↗</a>` : ''}
+              </div>
+            </div>
+          `).join('');
+        }
+
+        // ONGLET 2 : RÉPARATIONS
+        const repBox = document.getElementById('modalRepairsContent');
+        const repairsEntries = Object.entries(dev.repairs || {});
+        if (repairsEntries.length === 0 || totalRepairs === 0) {
+          repBox.innerHTML = '<div style="color: var(--text-muted); padding: 30px; text-align: center;">Aucun tarif d\'atelier répertorié pour ce modèle.</div>';
+        } else {
+          repBox.innerHTML = repairsEntries.map(([catId, catObj]) => {
+            const provs = catObj.all_providers || [];
+            if (provs.length === 0) return '';
+            return `
+              <div style="background: rgba(15,23,42,0.7); border: 1px solid var(--card-border); border-radius: 12px; padding: 14px; margin-bottom: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 8px;">
+                  <strong style="color: #fff; font-size: 13px;">🛠️ ${catObj.repair_label}</strong>
+                  <span style="font-size: 11px; color: #34d399; font-weight: 600;">Min : ${catObj.summary?.min_price || '-'} € (Moyenne : ${catObj.summary?.avg_price || '-'} €)</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  ${provs.map(p => `
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; background: rgba(255,255,255,0.02); padding: 8px 12px; border-radius: 8px;">
+                      <div>
+                        <div style="color: #fff; font-weight: 600;">${p.shop_name} <small style="color: var(--text-muted); font-weight: normal;">(${p.address || p.city})</small></div>
+                        <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                          Délai : ${p.delay} • ${p.warranty} ${p.qualirepar_discount ? '• <span style="color: #10b981;">Bonus QualiRépar Inclus</span>' : ''}
+                        </div>
+                      </div>
+                      <div style="font-size: 16px; font-weight: 700; color: #34d399; font-family: Outfit, sans-serif;">
+                        ${p.price ? p.price + ' €' : 'Sur devis'}
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+
+        // ONGLET 3 : PIÈCES B2B
+        const partsBox = document.getElementById('modalPartsContent');
+        const allParts = [];
+        Object.entries(dev.repairs || {}).forEach(([catId, catObj]) => {
+          (catObj.b2b_parts || []).forEach(pt => allParts.push({ ...pt, cat_id: catId }));
+        });
+        if (allParts.length === 0) {
+          partsBox.innerHTML = '<div style="color: var(--text-muted); padding: 30px; text-align: center;">Aucune pièce détachée B2B répertoriée dans le catalogue grossiste Utopya.</div>';
+        } else {
+          partsBox.innerHTML = allParts.map(pt => `
+            <div style="background: rgba(15,23,42,0.6); border: 1px solid var(--card-border); border-radius: 12px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="color: #fff; font-weight: 600; font-size: 13px;">${pt.part_name}</div>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                  Fournisseur : ${pt.provider} • Catégorie : ${pt.cat_id} ${pt.color ? '• Couleur : ' + pt.color : ''}
+                </div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-size: 18px; font-weight: 700; color: #fb923c; font-family: Outfit, sans-serif;">${pt.price_ht ? pt.price_ht + ' € HT' : 'N/C'}</div>
+                <span class="badge-status emerald" style="font-size: 9px;">Stock Grossiste</span>
+              </div>
+            </div>
+          `).join('');
+        }
+
+        // ONGLET 4 : JSON BRUT
+        document.getElementById('modalJsonBox').innerText = JSON.stringify(dev, null, 2);
+
+        // Activer onglet 1 par défaut
+        switchDeviceTab('sales');
+
+      } catch (err) {
+        console.error("Erreur device detail:", err);
+        showToast("Erreur lors de la récupération de la fiche.", "error");
+      }
+    }
+
+    function closeDeviceModal() {
+      document.getElementById('deviceModal').classList.remove('show');
+    }
+
+    function switchDeviceTab(tabName) {
+      document.getElementById('devTabBtnSales').classList.toggle('active', tabName === 'sales');
+      document.getElementById('devTabBtnRepairs').classList.toggle('active', tabName === 'repairs');
+      document.getElementById('devTabBtnParts').classList.toggle('active', tabName === 'parts');
+      document.getElementById('devTabBtnJson').classList.toggle('active', tabName === 'json');
+
+      document.getElementById('devPaneSales').style.display = tabName === 'sales' ? 'flex' : 'none';
+      document.getElementById('devPaneRepairs').style.display = tabName === 'repairs' ? 'flex' : 'none';
+      document.getElementById('devPaneParts').style.display = tabName === 'parts' ? 'flex' : 'none';
+      document.getElementById('devPaneJson').style.display = tabName === 'json' ? 'flex' : 'none';
+    }
+
+    function copyDeviceJson() {
+      if (!currentDeviceData) return;
+      navigator.clipboard.writeText(JSON.stringify(currentDeviceData, null, 2)).then(() => {
+        showToast("Document JSON copié dans le presse-papier !");
+      }).catch(() => {
+        showToast("Échec de la copie", "error");
+      });
+    }
+
+    async function rebuildUnifiedCatalog() {
+      const btn = document.getElementById('btnRebuildCatalog');
+      btn.disabled = true;
+      btn.innerHTML = '<span>⏳</span><span>Reconstruction en cours...</span>';
+      showToast("Lancement de la consolidation unifiée multi-sources...");
+
+      try {
+        const res = await fetch('/api/unified/rebuild', { method: 'POST' });
+        const data = await res.json();
+        if (data.error) {
+          showToast(`Erreur : ${data.error}`, 'error');
+        } else {
+          showToast("Master Catalogue unifié régénéré avec succès !");
+          await loadUnifiedCatalog();
+        }
+      } catch (err) {
+        console.error("Erreur rebuild:", err);
+        showToast("Erreur lors de la reconstruction de la base.", "error");
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<span>🔄</span><span>Reconstruire le Master</span>';
+      }
+    }
+
+    // TOAST NOTIFICATIONS
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = `toast ${type}`;
+      const icon = type === 'success' ? '✅' : '⚠️';
+      toast.innerHTML = `<span>${icon}</span><span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(10px)';
+        toast.style.transition = 'all 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+
+    // CHARGER LES FICHIERS DE PRODUCTION (ONGLET 1)
+    async function loadFiles(showToastMsg = false) {
+      try {
+        const res = await fetch('/api/files?scope=dataset');
+        const data = await res.json();
+        const fileList = document.getElementById('fileList');
+        fileList.innerHTML = '';
+
+        if (!data.files || data.files.length === 0) {
+          fileList.innerHTML = '<div style="text-align: center; color: var(--text-muted); padding: 40px 0;">Aucun fichier de production trouvé dans ./dataset/.</div>';
+          return;
+        }
+
+        data.files.forEach(f => {
+          const item = document.createElement('div');
+          item.className = 'file-item';
+          item.onclick = () => selectFile(f.full_path, item);
+
+          const tagRefined = f.is_refined 
+            ? '<span class="tag-refined">IA Certifiée</span>' 
+            : '<span class="tag-pending">À Traiter</span>';
+
+          item.innerHTML = `
+            <div class="file-header">
+              <div class="file-name-block">
+                <span>${f.icon || '📁'}</span>
+                <span class="file-name">${f.display_name || f.filename}</span>
+              </div>
+              <div class="meta-tags">
+                <span class="tag-prod">PRODUCTION</span>
+                ${tagRefined}
+              </div>
+            </div>
+            <div class="file-meta">
+              <span>📊 ${Number(f.rows_count).toLocaleString('fr-FR')} lignes • ${f.columns_count} cols</span>
+              <span>🕒 ${f.mtime}</span>
+            </div>
+          `;
+          fileList.appendChild(item);
+        });
+        if (showToastMsg) {
+          showToast(`Bases de production actualisées (${data.files.length} fichiers trouvés)`, 'success');
+        }
+      } catch (err) {
+        console.error("Erreur chargement fichiers:", err);
+      }
+    }
+
+    function selectFile(path, element) {
+      selectedFilePath = path;
+      document.querySelectorAll('.file-item').forEach(el => el.classList.remove('selected'));
+      element.classList.add('selected');
+      document.getElementById('startBtn').disabled = false;
+    }
+
+    // METTRE À JOUR LA LISTE SOURCE & DOMAINE (RE-SCAN COMPLET)
+    async function refreshSourcesAndDomains() {
+      const icon = document.getElementById('refreshSourcesIcon');
+      if (icon) {
+        icon.style.display = 'inline-block';
+        icon.style.animation = 'spin 1s linear infinite';
+      }
+      try {
+        await Promise.all([
+          loadStagingComparison(),
+          loadFiles()
+        ]);
+        showToast("Liste des Sources & Domaines mise à jour avec succès !", "success");
+      } catch (err) {
+        console.error("Erreur mise à jour sources:", err);
+        showToast("Erreur lors de la mise à jour des sources.", "error");
+      } finally {
+        if (icon) {
+          setTimeout(() => { icon.style.animation = 'none'; }, 600);
+        }
+      }
+    }
+
+    // CHARGER LE COMPARATIF STAGING (ONGLET 2)
+    async function loadStagingComparison() {
+      const refreshIcon = document.getElementById('refreshIcon');
+      refreshIcon.style.display = 'inline-block';
+      refreshIcon.style.animation = 'spin 1s linear infinite';
+
+      try {
+        const res = await fetch('/api/staging/compare');
+        const data = await res.json();
+
+        // Mettre à jour les KPI
+        if (data.summary) {
+          document.getElementById('kpiTotal').innerText = data.summary.total_sources ?? '—';
+          document.getElementById('kpiUpToDate').innerText = data.summary.up_to_date || 0;
+          document.getElementById('kpiEnriched').innerText = data.summary.enriched || 0;
+          document.getElementById('kpiRecent').innerText = data.summary.recent || 0;
+          document.getElementById('kpiPartial').innerText = data.summary.partial || 0;
+        }
+
+        const tbody = document.getElementById('stagingTableBody');
+        tbody.innerHTML = '';
+
+        if (!data.sources || data.sources.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: var(--text-muted); padding: 40px 0;">Aucune source trouvée.</td></tr>';
+          return;
+        }
+
+        window._stagingSourcesMap = {};
+        data.sources.forEach(s => {
+          window._stagingSourcesMap[s.source_key] = s;
+          const tr = document.createElement('tr');
+
+          // Écart visuel
+          let diffHtml = '';
+          if (s.diff_rows > 0) {
+            diffHtml = `<span class="diff-badge diff-plus">+${Number(s.diff_rows).toLocaleString('fr-FR')} offres</span>`;
+          } else if (s.diff_rows < 0) {
+            const cls = s.needs_force ? 'diff-warn' : 'diff-minus';
+            diffHtml = `<span class="diff-badge ${cls}">${Number(s.diff_rows).toLocaleString('fr-FR')} offres</span>`;
+          } else {
+            diffHtml = `<span class="diff-badge diff-zero">0 (identique)</span>`;
+          }
+
+          // Bouton d'action
+          let actionBtn = '';
+          const safeKey = (s.source_key || '').replace(/'/g, "\\'");
+          if (s.status === 'A_JOUR') {
+            actionBtn = `<button class="btn-promote-outline" onclick="openPromoteModal('${safeKey}')">🔄 Ré-appliquer</button>`;
+          } else if (s.needs_force) {
+            actionBtn = `<button class="btn-promote-warn" onclick="openPromoteModal('${safeKey}')">⚠️ Promouvoir (Forcé)</button>`;
+          } else if (s.can_promote) {
+            actionBtn = `<button class="btn-promote" onclick="openPromoteModal('${safeKey}')">🚀 Promouvoir en Prod</button>`;
+          } else {
+            actionBtn = `<span style="color: var(--text-muted); font-size: 11px;">Indisponible</span>`;
+          }
+
+          tr.innerHTML = `
+            <td>
+              <div class="source-cell">
+                <div class="source-icon">${s.icon}</div>
+                <div>
+                  <div class="source-name">${s.name}</div>
+                  <div class="source-domain">${s.domain}</div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="run-meta">
+                <span class="run-rows">${s.staging.rows ? Number(s.staging.rows).toLocaleString('fr-FR') + ' lignes' : '-'}</span>
+                <span class="run-sub">${s.staging.date || 'Aucun run'}</span>
+              </div>
+            </td>
+            <td>
+              <div class="run-meta">
+                <span class="run-rows">${s.production.rows ? Number(s.production.rows).toLocaleString('fr-FR') + ' lignes' : '-'}</span>
+                <span class="run-sub">${s.production.date || 'Non initialisé'}</span>
+              </div>
+            </td>
+            <td>${diffHtml}</td>
+            <td>
+              <span class="badge-status ${s.status_badge}">
+                ● ${s.status_label}
+              </span>
+            </td>
+            <td style="text-align: right;">
+              ${actionBtn}
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+      } catch (err) {
+        console.error("Erreur chargement staging:", err);
+        showToast("Erreur lors de la récupération des données de staging.", "error");
+      } finally {
+        setTimeout(() => {
+          refreshIcon.style.animation = 'none';
+        }, 500);
+      }
+    }
+
+    // MODAL DE PROMOTION
+    function openPromoteModal(sourceKeyOrData) {
+      const sourceData = typeof sourceKeyOrData === 'string'
+        ? (window._stagingSourcesMap && window._stagingSourcesMap[sourceKeyOrData] ? window._stagingSourcesMap[sourceKeyOrData] : {})
+        : sourceKeyOrData;
+      currentPromoteTarget = sourceData;
+      document.getElementById('modalSourceIcon').innerText = sourceData.icon;
+      document.getElementById('modalSourceName').innerText = sourceData.name;
+      document.getElementById('modalDsRows').innerText = `${Number(sourceData.production.rows || 0).toLocaleString('fr-FR')} lignes`;
+      document.getElementById('modalDsDate').innerText = `Date : ${sourceData.production.date || '-'}`;
+      document.getElementById('modalOutRows').innerText = `${Number(sourceData.staging.rows || 0).toLocaleString('fr-FR')} lignes`;
+      document.getElementById('modalOutDate').innerText = `Date : ${sourceData.staging.date || '-'}`;
+
+      const warnBox = document.getElementById('modalWarningBox');
+      const forceCheck = document.getElementById('checkForcePromote');
+      forceCheck.checked = false;
+
+      if (sourceData.needs_force) {
+        warnBox.classList.add('show');
+        document.getElementById('modalWarningText').innerHTML = `
+          ⚠️ <strong>Alerte Anti-Écrasement :</strong> Le run de staging ne contient que <strong>${sourceData.staging.rows} lignes</strong> contre <strong>${sourceData.production.rows} lignes</strong> en production (-${Math.abs(sourceData.diff_rows)} lignes). Pour éviter d'écraser un catalogue complet avec un run de test partiel, cochez obligatoirement la confirmation ci-dessous.
+        `;
+      } else {
+        warnBox.classList.remove('show');
+      }
+
+      document.getElementById('promoteModal').classList.add('show');
+    }
+
+    function closePromoteModal() {
+      document.getElementById('promoteModal').classList.remove('show');
+      currentPromoteTarget = null;
+    }
+
+    async function executePromotion() {
+      if (!currentPromoteTarget) return;
+
+      const force = document.getElementById('checkForcePromote').checked;
+      if (currentPromoteTarget.needs_force && !force) {
+        alert("Veuillez cocher la case de confirmation pour forcer la promotion d'un run partiel.");
+        return;
+      }
+
+      const btn = document.getElementById('btnConfirmPromote');
+      btn.disabled = true;
+      btn.innerText = "Promotion en cours...";
+
+      try {
+        const res = await fetch('/api/staging/promote', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            source: currentPromoteTarget.source_key,
+            force: force
+          })
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          showToast(`Succès : ${data.message}`, 'success');
+          closePromoteModal();
+          loadStagingComparison();
+          loadFiles();
+        } else {
+          alert(`Erreur : ${data.error}`);
+        }
+      } catch (err) {
+        console.error("Erreur promotion:", err);
+        alert("Erreur de communication avec le serveur.");
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = "<span>🚀 Confirmer la Promotion</span>";
+      }
+    }
+
+    // NORMALISATION IA (ONGLET 1)
+    async function startNormalization() {
+      if (!selectedFilePath) return;
+
+      const model = document.getElementById('modelSelect').value;
+      const concurrency = document.getElementById('concurrencySelect').value;
+      const incremental = document.getElementById('checkIncremental').checked;
+
+      document.getElementById('startBtn').disabled = true;
+      document.getElementById('stopBtn').style.display = 'block';
+      document.getElementById('progressSection').classList.add('active');
+      document.getElementById('successBanner').classList.remove('show');
+      document.getElementById('diffFeed').innerHTML = '';
+
+      try {
+        const res = await fetch('/api/start', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            file_path: selectedFilePath,
+            model: model,
+            concurrency: concurrency,
+            batch_size: 5,
+            incremental: incremental
+          })
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          if (pollInterval) clearInterval(pollInterval);
+          pollInterval = setInterval(pollProgress, 1000);
+        } else {
+          alert("Erreur : " + data.error);
+          document.getElementById('startBtn').disabled = false;
+          document.getElementById('stopBtn').style.display = 'none';
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Erreur de communication avec le serveur.");
+        document.getElementById('startBtn').disabled = false;
+        document.getElementById('stopBtn').style.display = 'none';
+      }
+    }
+
+    async function stopNormalization() {
+      await fetch('/api/stop', { method: 'POST' });
+    }
+
+    async function pollProgress() {
+      try {
+        const res = await fetch('/api/progress');
+        const data = await res.json();
+
+        const percent = data.progress_percent || 0;
+        document.getElementById('progressBarFill').style.width = percent + '%';
+        document.getElementById('progressPercentLabel').innerText = percent + '%';
+        document.getElementById('progressStatusLabel').innerText = (data.status && data.status !== 'running' && data.status !== 'completed' && data.status !== 'idle') ? data.status : (data.status_message || "En cours...");
+
+        document.getElementById('statProcessed').innerText = `${data.processed_rows} / ${data.total_rows}`;
+        document.getElementById('statCached').innerText = data.cached_rows || 0;
+        document.getElementById('statModified').innerText = data.modified_rows;
+        document.getElementById('statFiltered').innerText = data.filtered_accessories;
+        document.getElementById('statSpeed').innerText = `${data.speed_rows_per_sec}/s`;
+
+        if (data.recent_corrections && data.recent_corrections.length > 0) {
+          const feed = document.getElementById('diffFeed');
+          feed.innerHTML = '';
+          data.recent_corrections.forEach(item => {
+            const row = document.createElement('div');
+            row.className = 'diff-card';
+            
+            let beforeTxt = '';
+            let afterTxt = '';
+            if (item.is_product_sale) {
+              beforeTxt = `${item.before.brand || 'Sans marque'} • ${item.before.model || 'Sans modèle'} (${item.before.storage_gb ? item.before.storage_gb + ' Go' : 'Stockage inconnu'})`;
+              afterTxt = `${item.after.brand || 'N/A'} • ${item.after.model || 'N/A'} [${item.after.storage_gb ? item.after.storage_gb + ' Go' : 'N/A'}] • ${item.after.condition || 'new'}`;
+            } else {
+              beforeTxt = `${item.before.brand || 'Sans marque'} • ${item.before.model || 'Sans modèle'} [${item.before.repair_type || 'Type brut'}]`;
+              afterTxt = `${item.after.brand || 'N/A'} • ${item.after.model || 'N/A'} [🔧 ${item.after.repair_type || 'other'}]`;
+            }
+
+            row.innerHTML = `
+              <div class="diff-raw">
+                <div style="font-weight: 500; color: #fff; margin-bottom: 2px;">${item.original_title || 'Titre inconnu'}</div>
+                <div>${beforeTxt}</div>
+              </div>
+              <div class="diff-arrow">➔</div>
+              <div class="diff-after">${afterTxt}</div>
+            `;
+            feed.appendChild(row);
+          });
+        }
+
+        if (data.status === 'completed') {
+          clearInterval(pollInterval);
+          document.getElementById('startBtn').disabled = false;
+          document.getElementById('stopBtn').style.display = 'none';
+          document.getElementById('successBanner').classList.add('show');
+          if (data.result && data.result.paths) {
+            document.getElementById('exportPathsText').innerText = 
+              `CSV: ${data.result.paths.csv}\nJSON: ${data.result.paths.json}\nJSONL: ${data.result.paths.jsonl}\nRUN: ${data.result.paths.run_json}`;
+          }
+          loadFiles();
+        } else if (data.status === 'error' || data.status === 'stopped') {
+          clearInterval(pollInterval);
+          document.getElementById('startBtn').disabled = false;
+          document.getElementById('stopBtn').style.display = 'none';
+        }
+      } catch (err) {
+        console.error("Erreur polling:", err);
+      }
+    }
+
+    // INITIALISATION
+    loadFiles();
+  </script>
+</body>
+</html>

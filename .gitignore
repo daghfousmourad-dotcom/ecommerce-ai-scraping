@@ -1,0 +1,51 @@
+# Environnements virtuels
+.venv
+.venv/
+venv/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# OS & IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Fichiers sensibles (Secrets / Mots de passe)
+.env
+*.pem
+*.key
+
+# Dossiers temporaires de travail & expérimentation
+scratch/
+*.log
+
+# Cache local Ollama / Inférence
+03_ia_normalizer/outputs/.cache_ai_*.json
+
+# Archives volumineuses du pipeline de merge (> 100 Mo GitHub limit)
+04_merge_pipeline/outputs/history/
+
+# Node
+node_modules/
+node_modules
+.npm/
+
+# ==============================================================================
+# RÈGLES D'ASSAINISSEMENT E-COMMERCE AI SCRAPING (Exclusion des micro-fichiers et logs techniques)
+# ==============================================================================
+
+# 1. Ne jamais versionner les 8 800+ micro-fichiers devices/ (cause des chemins trop longs sur Windows)
+04_merge_pipeline/outputs/latest/devices/
+**/devices/
+
+# 2. Ignorer les fichiers techniques de débug et rapports temporaires (on ne garde que les .csv et .json propres)
+*_issues.jsonl
+*_quarantine.jsonl
+*_run.json
+*.jsonl

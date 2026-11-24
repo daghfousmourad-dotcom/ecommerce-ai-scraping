@@ -1,0 +1,1 @@
+"""Mediaphone Discount scraper package."""
